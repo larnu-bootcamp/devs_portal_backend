@@ -4,6 +4,17 @@ import supertest from 'supertest';
 
 
 describe('[express server ⚡]', () => {
+  // We hard-code this RequestHandler just for testing, we'll 
+  // encapsulate this logic in a router instead.
+  app.use('/api/v1/ping', async (req, res, next) => {
+    try {
+      res.status(200).json({
+        message: 'pong'
+      });
+    } catch (error) {
+      next(error);
+    }
+  });
   app.use('/api/v1/', defaultErrorHandler);
   const agent = supertest.agent(app);
 
