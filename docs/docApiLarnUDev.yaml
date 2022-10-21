@@ -13,30 +13,7 @@ tags:
   - name: admin
     description: Informacion con permisos para crear editar, eliminar estudiantes
 paths:
-  /:
-    get:
-      tags:
-        - public
-      summary: Muestra informacion de los estudiantes desde la base de datos
-      responses:
-        '200':
-          description: OK
-    post:
-      tags:
-        - public
-      summary: Registrar un reclutador
-      description: Esta ruta es para registrar un reclutador que busque estudiantes
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RegisterRecruiter'
-      responses:
-        '201':
-          description: El reclutador se registra de manera correcta
-        '403':
-          description: Error por validacion (completar todos los campos)
-  /developers:
+  /auth/login:
     post:
       tags:
         - admin
@@ -48,11 +25,16 @@ paths:
             schema:
               $ref: '#/components/schemas/authLogin'
       responses:
-        '201':
-          description: Retorna el objeto insertado en la coleccion con stado '201'
-        '403':
-          description: No tiene permisos '403'
-  /register:
+        '200':
+          description: Retorna el objeto insertado en la coleccion con stado '200'
+  /developers:
+    get:
+      tags:
+        - public
+      summary: Muestra informacion de los estudiantes desde la base de datos
+      responses:
+        '200':
+          description: OK
     post:
       tags:
         - admin
@@ -70,34 +52,11 @@ paths:
       responses:
         '201':
           description: El usuario se registra de manera correcta
-        '403':
+        '400':
           description: Error por validacion
-  /register/{id}/photo:
-    post:
-      tags:
-        - admin
-      summary: Cargar Foto del estudiante
-      description: >-
-        Aqui se cargara la foto del perfil del estudiante al momento de realizar
-        el registro del mismo
-      parameters:
-        - name: id
-          in: path
-          description: ID del estudiante
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/photo'
-      responses:
-        '201':
-          description: El usuario se registra de manera correcta
         '403':
-          description: Error por validacion
-  /developer/{id}:
+          description: Error por credenciales invalidas 
+  /developers/{id}:
     delete:
       tags:
         - admin
@@ -115,8 +74,12 @@ paths:
       responses:
         '200':
           description: Retorna el objecto del estudiante.
-        '422':
+        '400':
           description: Error de validacion.
+        '403':
+          description: Error por credenciales invalidas.
+        '404':
+          description: Estudiante no existe.
     put:
       tags:
         - admin
@@ -145,9 +108,52 @@ paths:
               schema:
                 $ref: '#/components/schemas/Estudiantes'
         '400':
-          description: Id no encontrado
+          description: Error de validacion.
+        '403':
+          description: Error por credenciales invalidas.
         '404':
-          description: Estudiante no existe
+          description: Estudiante no existe.
+  /developers/{id}/photo:
+    post:
+      tags:
+        - admin
+      summary: Cargar Foto del estudiante
+      description: >-
+        Aqui se cargara la foto del perfil del estudiante al momento de realizar
+        el registro del mismo
+      parameters:
+        - name: id
+          in: path
+          description: ID del estudiante
+          required: true
+          schema:
+            type: string
+      requestBody:
+        file:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/photo'
+      responses:
+        '201':
+          description: El usuario se registra de manera correcta
+        '403':
+          description: Error por validacion
+  /recruiters:
+    post:
+      tags:
+        - public
+      summary: Registrar un reclutador
+      description: Esta ruta es para registrar un reclutador que busque estudiantes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRecruiter'
+      responses:
+        '201':
+          description: El reclutador se registra de manera correcta
+        '400':
+          description: Error por validacion (completar todos los campos).
 components:
   securitySchemes:
     bearerAuth:
@@ -167,23 +173,23 @@ components:
     RegisterRecruiter:
       type: object
       required:
-        - nombre
-        - apellido
-        - empresa
+        - name
+        - lastName
+        - company
         - email
       properties:
-        nombre:
+        name:
           type: string
-          example: nombre
-        apellido:
+          example: name
+        lastName:
           type: string
-          example: apellido
-        empresa:
+          example: lastName
+        company:
           type: string
           example: Backend
         email:
           type: string
-          example: nombre@correo.com
+          example: name@correo.com
     photo:
       type: object
       required:
@@ -195,44 +201,44 @@ components:
     Register:
       type: object
       required:
-        - nombre
-        - apellido
-        - cargo
-        - ciudad
+        - name
+        - lastName
+        - role
+        - city
         - email
         - urlLinkedin
         - urlGitHub
-        - urlPortafolio
-        - descripción
+        - urlPortfolio
+        - description
         - skills
       properties:
-        nombre:
+        name:
           type: string
-          example: nombre
-        apellido:
+          example: name
+        lastName:
           type: string
-          example: apellido
-        cargo:
+          example: lastName
+        role:
           type: string
           example: Backend
-        ciudad:
+        city:
           type: string
-          example: ciudad
+          example: city
         email:
           type: string
-          example: nombre@correo.com
+          example: name@correo.com
         urlLinkedin:
           type: string
           example: https//Linkedin.com/
         urlGitHub:
           type: string
           example: https//github.com/
-        urlPortafolio:
+        urlPortfolio:
           type: string
           example: https//portafolio.com/
-        descripción:
+        description:
           type: string
-          example: Hola mi nombres es 
+          example: Hi my names is 
         skills:
           type: string
           example: react nodejs
@@ -240,47 +246,47 @@ components:
       type: object
       required:
         - id
-        - nombre
-        - apellido
-        - cargo
-        - ciudad
+        - name
+        - lastName
+        - role
+        - city
         - email
         - urlLinkedin
         - urlGitHub
-        - urlPortafolio
-        - descripción
+        - urlPortfolio
+        - description
         - skills
       properties:
         id:
           type: integer
           example: 10
-        nombre:
+        name:
           type: string
-          example: nombre
-        apellido:
+          example: name
+        lastName:
           type: string
-          example: apellido
-        cargo:
+          example: lastName
+        role:
           type: string
           example: Backend
-        ciudad:
+        city:
           type: string
-          example: ciudad
+          example: city
         email:
           type: string
-          example: nombre@correo.com
+          example: name@correo.com
         urlLinkedin:
           type: string
           example: https//Linkedin.com/
         urlGitHub:
           type: string
           example: https//github.com/
-        urlPortafolio:
+        urlPortfolio:
           type: string
           example: https//Portafolio.com/
-        descripción:
+        description:
           type: string
-          example: Hola mi nombres es
+          example: hi my names is
         skills:
           type: string
           example: react nodejs
