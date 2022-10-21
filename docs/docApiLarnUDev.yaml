@@ -27,6 +27,10 @@ paths:
       responses:
         '200':
           description: Retorna el objeto insertado en la coleccion con stado '200'
+        '400':
+          description: Error por validacion
+        '404':
+          description: email o password no coinciden
   /developers:
     get:
       tags:
