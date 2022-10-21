@@ -1,0 +1,292 @@
+openapi: 3.0.0
+servers:
+  - url: https://www.larnu.com/egresados
+info:
+  version: 1.0.1
+  title: Portal-de-larnu-dev
+  description: >-
+    Esta API se ancarga de manejar la informacion de los estudiantes del
+    bootcamp que se encuentran en busca de empleo
+tags:
+  - name: public
+    description: Informacion de los Estudiantes egresados
+  - name: admin
+    description: Informacion con permisos para crear editar, eliminar estudiantes
+paths:
+  /auth/login:
+    post:
+      tags:
+        - admin
+      summary: Ingreso a la plataforma -- Administrador
+      description: Iniciar session y obtener el token de sesión
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authLogin'
+      responses:
+        '200':
+          description: Retorna el objeto insertado en la coleccion con stado '200'
+  /developers:
+    get:
+      tags:
+        - public
+      summary: Muestra informacion de los estudiantes desde la base de datos
+      responses:
+        '200':
+          description: OK
+    post:
+      tags:
+        - admin
+      summary: 'Registrar un estudiante '
+      description: >-
+        Esta ruta es para registrar un estudiante que se encuentre en busqueda
+        de empleo
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register'
+      responses:
+        '201':
+          description: El usuario se registra de manera correcta
+        '400':
+          description: Error por validacion
+        '403':
+          description: Error por credenciales invalidas 
+  /developers/{id}:
+    delete:
+      tags:
+        - admin
+      summary: Eliminar estudiante
+      description: Elimiar el perfil del estudiante Larnu
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: ID del estudiante
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Retorna el objecto del estudiante.
+        '400':
+          description: Error de validacion.
+        '403':
+          description: Error por credenciales invalidas.
+        '404':
+          description: Estudiante no existe.
+    put:
+      tags:
+        - admin
+      summary: Actualizar estudiante
+      description: Actualizar el perfil del estudiante Larnu
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: ID del estudiante
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Actualizar los datos de un estudiante existente
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Estudiantes'
+      responses:
+        '200':
+          description: Los datos fueron actualizados correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Estudiantes'
+        '400':
+          description: Error de validacion.
+        '403':
+          description: Error por credenciales invalidas.
+        '404':
+          description: Estudiante no existe.
+  /developers/{id}/photo:
+    post:
+      tags:
+        - admin
+      summary: Cargar Foto del estudiante
+      description: >-
+        Aqui se cargara la foto del perfil del estudiante al momento de realizar
+        el registro del mismo
+      parameters:
+        - name: id
+          in: path
+          description: ID del estudiante
+          required: true
+          schema:
+            type: string
+      requestBody:
+        file:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/photo'
+      responses:
+        '201':
+          description: El usuario se registra de manera correcta
+        '403':
+          description: Error por validacion
+  /recruiters:
+    post:
+      tags:
+        - public
+      summary: Registrar un reclutador
+      description: Esta ruta es para registrar un reclutador que busque estudiantes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRecruiter'
+      responses:
+        '201':
+          description: El reclutador se registra de manera correcta
+        '400':
+          description: Error por validacion (completar todos los campos).
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    authLogin:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+    RegisterRecruiter:
+      type: object
+      required:
+        - name
+        - lastName
+        - company
+        - email
+      properties:
+        name:
+          type: string
+          example: name
+        lastName:
+          type: string
+          example: lastName
+        company:
+          type: string
+          example: Backend
+        email:
+          type: string
+          example: name@correo.com
+    photo:
+      type: object
+      required:
+        - photo
+      properties:
+        photo:
+          type: string
+          format: base64
+    Register:
+      type: object
+      required:
+        - name
+        - lastName
+        - role
+        - city
+        - email
+        - urlLinkedin
+        - urlGitHub
+        - urlPortfolio
+        - description
+        - skills
+      properties:
+        name:
+          type: string
+          example: name
+        lastName:
+          type: string
+          example: lastName
+        role:
+          type: string
+          example: Backend
+        city:
+          type: string
+          example: city
+        email:
+          type: string
+          example: name@correo.com
+        urlLinkedin:
+          type: string
+          example: https//Linkedin.com/
+        urlGitHub:
+          type: string
+          example: https//github.com/
+        urlPortfolio:
+          type: string
+          example: https//portafolio.com/
+        description:
+          type: string
+          example: Hi my names is 
+        skills:
+          type: string
+          example: react nodejs
+    Estudiantes:
+      type: object
+      required:
+        - id
+        - name
+        - lastName
+        - role
+        - city
+        - email
+        - urlLinkedin
+        - urlGitHub
+        - urlPortfolio
+        - description
+        - skills
+      properties:
+        id:
+          type: integer
+          example: 10
+        name:
+          type: string
+          example: name
+        lastName:
+          type: string
+          example: lastName
+        role:
+          type: string
+          example: Backend
+        city:
+          type: string
+          example: city
+        email:
+          type: string
+          example: name@correo.com
+        urlLinkedin:
+          type: string
+          example: https//Linkedin.com/
+        urlGitHub:
+          type: string
+          example: https//github.com/
+        urlPortfolio:
+          type: string
+          example: https//Portafolio.com/
+        description:
+          type: string
+          example: hi my names is
+        skills:
+          type: string
+          example: react nodejs
