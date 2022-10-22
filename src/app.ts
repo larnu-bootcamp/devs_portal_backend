@@ -1,12 +1,10 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import { config } from 'dotenv';
 import { connectDb } from './data-source';
 import { defaultErrorHandler } from './middlewares/defaultErrorHandler';
 
 
-config();
 export const app = express();
 connectDb();
 
