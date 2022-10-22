@@ -1,14 +1,18 @@
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
 import { config } from 'dotenv';
+import { connectDb } from './data-source';
 import { defaultErrorHandler } from './middlewares/defaultErrorHandler';
 
 
 config();
 export const app = express();
+connectDb();
 
 // 1. middlewares
 app.use(express.json());
+app.use(cors());
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
