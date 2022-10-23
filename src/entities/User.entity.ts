@@ -21,7 +21,7 @@ export class User {
   @Column()
   active!: boolean;
 
-  @Column()
+  @Column({ default: 'admin' })
   role!: string;
 
   @CreateDateColumn({ type: 'timestamp with time zone', name: 'created_at', default: () => 'CURRENT_TIMESTAMP' })

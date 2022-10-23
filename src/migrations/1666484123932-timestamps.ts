@@ -21,5 +21,4 @@ export class timestamps1666484123932 implements MigrationInterface {
     await queryRunner.query('ALTER TABLE "recruiter" DROP COLUMN "updated_at"');
     await queryRunner.query('ALTER TABLE "recruiter" DROP COLUMN "created_at"');
   }
-
 }

@@ -1,5 +1,4 @@
 import { app } from '../src/app';
-import { } from 'typeorm';
 import { connectDb, AppDataSource } from '../src/data-source';
 import supertest from 'supertest';
 

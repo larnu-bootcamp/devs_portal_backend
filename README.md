@@ -23,11 +23,18 @@ These instructions will get you a copy of the project up and running on your loc
   npm i
 ```
 
-Create a .env file like sample.env for your configurations.
+<br>
 
-## Database:
+> IMPORTANT:
+>
+> ### Create a .env file like sample.env for your configurations in the root of your project.
+
+<br>
+
+## Database commands:
 
 ```bash
+  npm run db:reset
   npm run db:create
   npm run db:drop
   npm run db:seed
@@ -37,7 +44,21 @@ Create a .env file like sample.env for your configurations.
   npm run typeorm -d <your-data-source-path> migration:{run|revert} # runs or reverts migration by file
 ```
 
-Once the database is created and migrations are run automatically, then we can start our express app.
+## Starting the server:
+
+Run before starting the server:
+
+```bash
+  npm run db:reset # resets db & runs migrations & seeders
+```
+
+or
+
+```bash
+  npm run db:create # only creates the db if doesn't exist
+```
+
+Once the database is created or reset and migrations are run automatically, then we can start our express app.
 
 ```bash
   npm run dev:start
