@@ -27,9 +27,7 @@ const options: DataSourceOptions & SeederOptions = {
  * devs_portal database already exits.
  *
  * if not:
- *    npm run db:reset
- * or 
- *    npm run db:create
+ * npm run db:up or npm run db:create
  */
 export const AppDataSource = new DataSource(options);
 
