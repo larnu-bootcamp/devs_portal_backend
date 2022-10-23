@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateCol
 
 
 @Entity()
-export class Student {
+export class User {
   @PrimaryGeneratedColumn()
   id!: number;
 
@@ -12,38 +12,17 @@ export class Student {
   @Column({ name: 'last_name' })
   lastName!: string;
 
-  @Column()
-  age!: number;
-
-  @Column()
-  city!: string;
-
-  @Column()
-  country!: string;
-
   @Column({ unique: true })
   email!: string;
 
   @Column()
+  password!: string;
+
+  @Column()
   active!: boolean;
 
-  @Column('varchar', { array: true, default: [] })
-  skills!: string[];
-
   @Column()
-  profession!: string;
-
-  @Column('text')
-  description!: string;
-
-  @Column()
-  github!: string;
-
-  @Column()
-  linkedin!: string;
-
-  @Column()
-  portfolio!: string;
+  rol!: string;
 
   @CreateDateColumn({ type: 'timestamp with time zone', name: 'created_at', default: () => 'CURRENT_TIMESTAMP' })
   createdAt!: Date;
