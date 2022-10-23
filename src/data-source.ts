@@ -1,16 +1,11 @@
 import 'reflect-metadata';
-import { DataSource, } from 'typeorm';
+import { DataSource, DataSourceOptions } from 'typeorm';
+import { SeederOptions } from 'typeorm-extension';
 import { config } from 'dotenv';
 
 
 config();
-
-/**
- * 
- * @description before connecting the database validate that
- * devs_portal db already exits if not: npm run db:create
- */
-export const AppDataSource = new DataSource({
+const options: DataSourceOptions & SeederOptions = {
   type: 'postgres',
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
@@ -22,7 +17,16 @@ export const AppDataSource = new DataSource({
   logging: false,
   entities: ['src/entities/*.ts'],
   migrations: ['src/migrations/*.ts'],
-});
+  seeds: ['src/seeds/*.seed.ts'],
+  factories: ['src/seeds/*.factory.ts'],
+};
+
+/**
+ * 
+ * @description before connecting the database validate that
+ * devs_portal db already exits if not: npm run db:create
+ */
+export const AppDataSource = new DataSource(options);
 
 export const connectDb = async () => {
   try {
