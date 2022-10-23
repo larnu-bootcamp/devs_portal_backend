@@ -7,7 +7,7 @@
     "dev:start": "ts-node-dev --poll --respawn --transpile-only --quiet ./server.ts",
     "dev:debug": "ts-node-dev --poll --respawn --transpile-only --quiet --inspect=4321 --project tsconfig.json ./server.ts",
     "dev:lint": "eslint .",
-    "test:start": "jest",
+    "test:start": "jest --detectOpenHandles",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "prod:build": "tsc --verbose",

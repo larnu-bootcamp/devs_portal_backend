@@ -8,7 +8,7 @@ config();
 /**
  * 
  * @description before connecting the database validate that
- * devs_portal db already exits if not run: npm run db:create
+ * devs_portal db already exits if not: npm run db:create
  */
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -25,11 +25,10 @@ export const AppDataSource = new DataSource({
 });
 
 export const connectDb = async () => {
-  AppDataSource.initialize()
-    .then(res => {
-      console.log(`[DB ⚡] ${res.options.database} running.`,);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  try {
+    const { options } = await AppDataSource.initialize();
+    console.log(`[DB ⚡] ${options.database} running.`,);
+  } catch (error) {
+    console.log(error);
+  }
 };

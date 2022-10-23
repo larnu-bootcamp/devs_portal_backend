@@ -51,7 +51,7 @@ Once the database is created and migrations are run automatically, then we can s
 
 ## Usage
 
-How to get the development env started.
+How to set the environment from scratch.
 
 ```bash
   npm init --y
@@ -68,7 +68,9 @@ npm i [dependencies] & npm i --save-dev [devDependencies]
 
 <br>
 
-Install thunder-client vscode extension to save the http collections to our workspace.
+## Thunder-Client
+
+Install thunder-client vscode extension to save the collections into our workspace.
 
 ```bash
   ctrl + shift + p
@@ -81,7 +83,7 @@ into settings.json:
 { "thunder-client.saveToWorkspace": true }
 ```
 
-Then you can visualise the folder thunder-tests to test the endpoints
+Then you can visualise the folder thunder-tests to test the endpoints and save any change or test.
 
 ## Contributing
 
