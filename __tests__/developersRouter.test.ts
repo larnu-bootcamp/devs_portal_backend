@@ -1,6 +1,6 @@
 import { app } from '../src/app';
 import { connectDb, AppDataSource } from '../src/data-source';
-import { Student } from '../src/entities/Student.entity';
+import { Student } from '../src/developer/entity';
 import supertest from 'supertest';
 
 
