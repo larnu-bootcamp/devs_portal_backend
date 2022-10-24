@@ -2,6 +2,9 @@ import 'reflect-metadata';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { SeederOptions } from 'typeorm-extension';
 import { config } from 'dotenv';
+import { Student } from './developer/entity';
+import { Recruiter } from './recruiter/entity';
+import { User } from './user/entity';
 
 
 config();
@@ -15,7 +18,7 @@ const options: DataSourceOptions & SeederOptions = {
   synchronize: false,
   migrationsRun: true,
   logging: false,
-  entities: ['src/entities/*.ts'],
+  entities: [Student, Recruiter, User],
   migrations: ['src/migrations/*.ts'],
   seeds: ['src/seeds/*.seed.ts'],
   factories: ['src/seeds/*.factory.ts'],

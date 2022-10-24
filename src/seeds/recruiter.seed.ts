@@ -1,6 +1,6 @@
 import { Seeder, SeederFactoryManager } from 'typeorm-extension';
 import { DataSource } from 'typeorm';
-import { Recruiter } from '../entities/Recruiter.entity';
+import { Recruiter } from '../recruiter/entity';
 
 
 export default class RecruiterSeeder implements Seeder {
