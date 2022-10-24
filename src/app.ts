@@ -1,14 +1,14 @@
 import express from 'express';
 import morgan from 'morgan';
-import { config } from 'dotenv';
+import cors from 'cors';
 import { defaultErrorHandler } from './middlewares/defaultErrorHandler';
 
 
-config();
 export const app = express();
 
 // 1. middlewares
 app.use(express.json());
+app.use(cors());
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
