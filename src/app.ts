@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import { defaultErrorHandler } from './middlewares/defaultErrorHandler';
+import { developersRouter } from './developer/router';
 
 
 export const app = express();
@@ -24,6 +25,8 @@ app.use('/api/v1/ping', async (req, res, next) => {
     next(error);
   }
 });
+
+app.use('/api/v1/developers', developersRouter);
 
 // 3. defaultErrorHandler middleware
 app.use('/api/v1/', defaultErrorHandler);

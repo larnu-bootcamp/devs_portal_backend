@@ -1,5 +1,5 @@
 import { setSeederFactory } from 'typeorm-extension';
-import { Recruiter } from '../entities/Recruiter.entity';
+import { Recruiter } from '../recruiter/entity';
 
 
 export default setSeederFactory(Recruiter, (faker) => {

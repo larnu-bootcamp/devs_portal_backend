@@ -6,6 +6,8 @@ Rest API for LarnU Full-stack Bootcamp's final project for our graduation.
 
 - [About](#about)
 - [Getting Started](#getting_started)
+- [Database Commands](#database_commands)
+- [Starting the Server](#starting_the_server)
 - [Usage](#usage)
 - [Contributing](#contributing)
 
@@ -14,7 +16,7 @@ Rest API for LarnU Full-stack Bootcamp's final project for our graduation.
 DEVS PORTAL is a web app where graduated LarnU students can be contacted and show their skills to recruiters
 and future employers.
 
-## Getting Started
+## Getting_Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
@@ -31,10 +33,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 <br>
 
-## Database commands:
+## Database_commands
 
 ```bash
-  npm run db:reset
+  npm run db:up
   npm run db:create
   npm run db:drop
   npm run db:seed
@@ -44,12 +46,12 @@ These instructions will get you a copy of the project up and running on your loc
   npm run typeorm -d <your-data-source-path> migration:{run|revert} # runs or reverts migration by file
 ```
 
-## Starting the server:
+## Starting_the_server
 
 Run before starting the server:
 
 ```bash
-  npm run db:reset # resets db & runs migrations & seeders
+  npm run db:up # resets db & runs migrations & seeders
 ```
 
 or
