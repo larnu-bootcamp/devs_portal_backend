@@ -3,7 +3,9 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { defaultErrorHandler } from './middlewares/defaultErrorHandler';
 import { developersRouter } from './developer/router';
-
+import { authLogin } from './user/user.router';
+import { schemaValidator } from './middlewares/schemaValidation';
+import { loginSchema } from './user/auth.schema';
 
 export const app = express();
 
@@ -27,6 +29,8 @@ app.use('/api/v1/ping', async (req, res, next) => {
 });
 
 app.use('/api/v1/developers', developersRouter);
+
+app.use('/api/v1/auth', schemaValidator(loginSchema), authLogin);
 
 // 3. defaultErrorHandler middleware
 app.use('/api/v1/', defaultErrorHandler);

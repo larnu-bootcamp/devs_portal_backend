@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "_id": "e644ddf4-49a6-4240-b38d-34a80dc1516a",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/auth/login",
+    "url": "http://localhost:3000/api/v1/auth/login",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-10-25T22:37:17.521Z",
+    "modified": "2022-10-26T03:05:05.543Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"Lurline44@hotmail.com\",\n  \"password\": \"12345678\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]

@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-
+import * as bcrypt from 'bcryptjs';
+import * as jwt from 'jsonwebtoken';
 
 @Entity()
 export class User {
@@ -29,4 +30,25 @@ export class User {
 
   @UpdateDateColumn({ type: 'timestamp with time zone', name: 'updated_at', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP' })
   updatedAt!: Date;
+
+  isValidPassword = (password: string) => {
+    return bcrypt.compareSync(password, this.password);
+  };
+
+  setPassword = (password: string) => {
+    return (this.password =  bcrypt.hashSync(password, 8));
+  };
+
+  generateJWT = () => {
+    return jwt.sign(
+      {
+        email: this.email,
+      },
+      'SECRET',
+      {
+        expiresIn: '1h'
+      }
+    );
+  };
+
 }
