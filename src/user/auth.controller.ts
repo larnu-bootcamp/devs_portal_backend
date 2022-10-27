@@ -1,40 +1,43 @@
-import { BaseEntity } from 'typeorm';
-import { Request, Response } from 'express';
+import { RequestHandler } from 'express';
 import { User } from './entity';
 import { AppDataSource } from '../data-source';
+import bcrypt from 'bcryptjs';
+import Jwt  from 'jsonwebtoken';
+import { HttpError } from '../helpers/HttpError';
 
-
-class AuthController extends BaseEntity {
-  static login = async ( req: Request, res: Response) => {
-    const { email, password } = req.body;
-
-    if (! (email && password)) {
-    console.log('se daño aqui');
-    res.status(400).send();
-    }
-
-    const userRepository = AppDataSource.getRepository(User);
-    try {
-      const userLarnu = await userRepository.findOne({
-        where: {email}});
-      if (userLarnu && !userLarnu.isValidPassword(password)) {
-        res.status(401).send('Usuario o Contraseña Incorrecta');
-        return;
-      } else if ((userLarnu && userLarnu.isValidPassword(password)) && userLarnu?.active === false) {
-        res.status(401).send('Usuario inactivo');
-        return;
+export const login: RequestHandler = async(req, res, next) => {  
+  try {
+    const user = await AppDataSource.getRepository(User).findOne({
+      where: {
+        email: req.body.email
       }
-      res.status(200).json({ 
-        Name: userLarnu?.name, 
-        lasname: userLarnu?.lastName,
-        rol: userLarnu?.role,
-        access_token: userLarnu?.generateJWT() });
-    }
-    catch (error) {
-      console.log('no entra');
-      res.status(401).send(error);
-    }
-  };
-}
-
-export default AuthController;
+    });
+      if (!user) {
+        return next(new HttpError (404, 'user not found'));
+      } else if (user) {
+        bcrypt.compare(req.body.password, user.password, function(err, result) {
+                   
+            if (!result) {
+              return next(new HttpError (401, 'user does not have valid authentication credentials.'));
+            } else if (user.active === false) {
+              return next(new HttpError (401, 'Access Denied You dont have permission to access'));
+            } else {
+              const generateJWT = () => {
+                return Jwt.sign( {  email: req.body.email },
+                  'SECRET', { expiresIn: '1h' } );
+              };
+                res.json({
+                   success: true,
+                   Name: user?.name, 
+                   lasname: user?.lastName,
+                   rol: user.role,
+                   active: user.active,
+                   token: generateJWT()
+                });
+              }
+        });
+      }
+  } catch (error) {
+      next(error);
+  }
+};

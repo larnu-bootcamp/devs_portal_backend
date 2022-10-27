@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { AnyZodObject, ZodError } from 'zod';
 
+
 export const schemaValidator =
   (schema: AnyZodObject) => (req: Request, res: Response, next: NextFunction) => {
     try {
