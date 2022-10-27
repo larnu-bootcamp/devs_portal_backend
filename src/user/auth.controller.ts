@@ -16,7 +16,6 @@ export const login: RequestHandler = async(req, res, next) => {
         return next(new HttpError (404, 'user not found'));
       } else if (user) {
         bcrypt.compare(req.body.password, user.password, function(err, result) {
-                   
             if (!result) {
               return next(new HttpError (401, 'user does not have valid authentication credentials.'));
             } else if (user.active === false) {

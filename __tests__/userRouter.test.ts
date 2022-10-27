@@ -46,7 +46,7 @@ describe('Test Login', () => {
     expect(body).toHaveProperty('message');
   });
 
-  it('should allow to login', async () => {
+  it('should throw 401 error due to credential error', async () => {
     const payload = {
       'email': 'Lurline44@hotmail.com',
       'password': '12345678Pass'
