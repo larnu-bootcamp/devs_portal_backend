@@ -17,5 +17,24 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "789bb507-1224-4992-bee7-9bc6425eb120",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/api/v1/auth/register",
+    "url": "http://localhost:3000/api/v1/auth/register",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-10-27T20:54:50.947Z",
+    "modified": "2022-10-27T20:54:51.001Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"username\",\n  \"lastName\": \"userlastName\",\n  \"email\": \"nuevo@hotmail.com\",\n  \"password\": \"12345678\",\n  \"active\": true\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

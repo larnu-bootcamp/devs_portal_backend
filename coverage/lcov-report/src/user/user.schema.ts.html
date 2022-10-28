@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/recruiter/entity.ts</title>
+    <title>Code coverage report for src/user/user.schema.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/recruiter</a> entity.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/user</a> user.schema.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">84.61% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/13</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
@@ -89,58 +89,70 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as zod from 'zod';
+import { loginSchema } from './auth.schema';
 &nbsp;
-&nbsp;
-@Entity()
-export class Recruiter {
-  @PrimaryGeneratedColumn()
-  id!: number;
-&nbsp;
-  @Column()
-  name!: string;
-&nbsp;
-  @Column({ name: 'last_name' })
-  lastName!: string;
-&nbsp;
-  @Column({ unique: true })
-  email!: string;
-&nbsp;
-  @Column()
-  company!: string;
-&nbsp;
-  @CreateDateColumn({ type: 'timestamp with time zone', name: 'created_at', default: <span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >'CURRENT_TIMESTAMP' </span>})
-  createdAt!: Date;
-&nbsp;
-  @UpdateDateColumn({ type: 'timestamp with time zone', name: 'updated_at', default: <span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >'CURRENT_TIMESTAMP',</span> onUpdate: 'CURRENT_TIMESTAMP' })
-  updatedAt!: Date;
-}
+export const userSchema = loginSchema.extend({
+  body: zod.object({
+    name: zod
+      .string()
+      .min(2, 'El campo Nombre es obligatorio '),
+      
+    lastName: zod
+      .string({required_error: 'El campo apellido es obligatorio '})
+      .min(2, 'El apellido es requerido'),
+    email: zod
+      .string()
+      .email({message: 'Debe ser un correo electronico valido'})
+      .min(1, 'El email es requerido'),
+    password: zod
+      .string()
+      .regex(new RegExp('.*[A-Z].*'), 'One uppercase character')
+      .regex(new RegExp('.*[a-z].*'), 'One lowercase character')
+      .regex(new RegExp('.*\\d.*'), 'One number')
+      .regex(new RegExp('.*[A-Z].*'))
+      .regex(new RegExp('.*[a-z].*'))
+      .regex(new RegExp('.*[0-9].*'))
+      .regex(new RegExp('.*[`~&lt;&gt;?,./!@#$%^&amp;*()\\-_+=\'|{}\\[\\];:\\\\].*'), 'One special character')
+      .min(8, 'La contraseña debe tener minimo 8 Caracteres'),
+    active: zod
+      .boolean(),
+  }),
+});
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
