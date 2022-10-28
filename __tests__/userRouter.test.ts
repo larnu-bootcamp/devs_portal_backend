@@ -32,10 +32,10 @@ describe('Test Register Admin User ', () => {
       .type('json')
       .send(payload);
      
-      expect(status).toBe(200);
-      expect(body.Name).toMatch('admin');
-      expect(body.email).toMatch('adminlarnu2@hotmail.com');
-      expect(body.active).toBeTruthy();
+    expect(status).toBe(200);
+    expect(body.Name).toMatch('admin');
+    expect(body.email).toMatch('adminlarnu2@hotmail.com');
+    expect(body.active).toBeTruthy();
   });
 
   it('should throw 500 error if user already exists', async () => {
@@ -51,8 +51,8 @@ describe('Test Register Admin User ', () => {
       .type('json')
       .send(payload);
       
-      expect(status).toBe(500);
-      expect(body).toHaveProperty('message');  
+    expect(status).toBe(500);
+    expect(body).toHaveProperty('message');  
   });
 
   it('should register a user with inactive status', async () => {
@@ -68,10 +68,10 @@ describe('Test Register Admin User ', () => {
       .type('json')
       .send(payload);
      
-      expect(status).toBe(200);
-      expect(body.Name).toMatch('admin');
-      expect(body.email).toMatch('adminlarnu3@hotmail.com');
-      expect(body.active).toBeFalsy();
+    expect(status).toBe(200);
+    expect(body.Name).toMatch('admin');
+    expect(body.email).toMatch('adminlarnu3@hotmail.com');
+    expect(body.active).toBeFalsy();
   });
 
 });
@@ -94,10 +94,10 @@ describe('Test Login', () => {
       .type('json')
       .send(payload);
     
-      expect(status).toBe(200);
-      expect(body.Name).toMatch('admin');
-      expect(body.lasname).toMatch('larnu');
-      expect(body.active).toBeTruthy();
+    expect(status).toBe(200);
+    expect(body.Name).toMatch('admin');
+    expect(body.lasname).toMatch('larnu');
+    expect(body.active).toBeTruthy();
       
   });
 
@@ -125,9 +125,8 @@ describe('Test Login', () => {
       .type('json')
       .send(payload);
     
-      console.log(status);
-      expect(status).toBe(401);
-      expect(body).toHaveProperty('message');
+    expect(status).toBe(401);
+    expect(body).toHaveProperty('message');
       
   });
 
@@ -141,7 +140,7 @@ describe('Test Login', () => {
       .type('json')
       .send(payload);
   
-      expect(status).toBe(401);
-      expect(body.active).toBeFalsy();
+    expect(status).toBe(401);
+    expect(body.active).toBeFalsy();
   });  
 });

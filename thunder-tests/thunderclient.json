@@ -36,12 +36,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-10-27T20:55:27.516Z",
-    "modified": "2022-10-27T22:34:13.866Z",
+    "modified": "2022-10-28T17:02:55.454Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"username2\",\n  \"lastName\": \"lastname\",\n  \"email\": \"nuevo25@hotmail.com\",\n  \"password\": \"12345678Rv.\",\n  \"active\": false\n}",
+      "raw": "{\n  \"name\": \"username35\",\n  \"lastName\": \"lastname35\",\n  \"email\": \"nuevo35@hotmail.com\",\n  \"password\": \"12345678Rv.\",\n  \"active\": true\n}",
       "form": []
     },
     "tests": []
@@ -55,7 +55,7 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-10-27T20:56:12.729Z",
-    "modified": "2022-10-27T20:56:40.839Z",
+    "modified": "2022-10-28T16:28:58.657Z",
     "headers": [],
     "params": [],
     "body": {
