@@ -64,5 +64,43 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "fc8c3a05-1b15-4d25-94c8-09da948661b4",
+    "colId": "ade3a223-d2f0-4fca-b728-55a432879d87",
+    "containerId": "",
+    "name": "Patch student",
+    "url": "localhost:3000/api/v1/developers/larnu/register/102",
+    "method": "PATCH",
+    "sortNum": 40000,
+    "created": "2022-11-02T14:30:09.311Z",
+    "modified": "2022-11-02T14:30:09.311Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{ \n  \"name\":\"ejemp100\",\n  \"lastName\":\"ejemp100\",\n  \"age\":20,\n  \"city\":\"ejemp100\",\n  \"country\":\"ejemp100\", \n  \"email\":\"ejemp100@correo.com\",\n  \"active\":true,\n  \"skills\":[\"ejemp\", \"ejem2\"],\n  \"profession\":\"ejemp\",\n  \"description\":\"ejempasdadada dadas\",\n  \"github\":\"https://www.linkedin.com\",  \n  \"linkedin\":\"https://www.linkedin.com\",\n  \"portfolio\":\"https://www.linkedin.com\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "a06658c2-1184-4726-b3bc-6a8836d488a3",
+    "colId": "ade3a223-d2f0-4fca-b728-55a432879d87",
+    "containerId": "",
+    "name": "post Student",
+    "url": "localhost:3000/api/v1/developers/larnu/register",
+    "method": "POST",
+    "sortNum": 50000,
+    "created": "2022-11-02T14:31:45.314Z",
+    "modified": "2022-11-02T15:20:24.901Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{ \n  \"name\":\"ejemp\",\n  \"lastName\":\"ejemp\",\n  \"age\":20,\n  \"city\":\"ejemp\",\n  \"country\":\"ejemp\", \n  \"email\":\"ejemp5890@correo.com\",\n  \"active\":true,\n  \"skills\":[\"ejemp\", \"ejem2\"],\n  \"profession\":\"ejemp\",\n  \"description\":\"ejempasdadada dadas\",\n  \"github\":\"https://www.linkedin.com\",  \n  \"linkedin\":\"https://www.linkedin.com\",\n  \"portfolio\":\"https://www.linkedin.com\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

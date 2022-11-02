@@ -1,6 +1,5 @@
 import { Router } from 'express';
-import { getAll } from './controller';
-
+import { getAll} from './controller';
 
 export const developersRouter = Router();
 
