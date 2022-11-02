@@ -30,12 +30,10 @@ describe('[developersRouter ⚡]', () => {
       expect(res.body).toHaveProperty('students');
       expect(res.body.students).toBeInstanceOf(Array<Student>);
     });
-  });
-
-  /*
+/*
 * Register user developer
 */
-describe('post /developers/larnu/register', () => {
+  describe('post /developers/larnu/register', () => {
   const request = supertest.agent(app);
 
   it('should be able to register a user in the database', async () => {
@@ -90,5 +88,4 @@ describe('post /developers/larnu/register', () => {
       expect(body).toHaveProperty('message'); 
     });
   });
-  
-});
+ 
