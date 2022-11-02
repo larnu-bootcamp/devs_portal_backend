@@ -48,14 +48,15 @@ jobs:
     steps:
       # - name: GitHub Action for Firebase and Postgres, w9jds/firebase-action@v11.9.0
       - uses: joinflux/firebase-tools@v10.7.0
-        with:
-          args: emulators:start
+        # with:
+        #   args: emulators:start
         env:
           FIREBASE_TOKEN: 1//05zjspZfqCfUJCgYIARAAGAUSNwF-L9Ir36wdwCbNtgVnfyeTdeGUJMZsolpOZyUa9lDccpVPyZ5HGWvYPyk1zLkYkIjh9XooBrw
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - run: firebase emulators:start --only storage
       - run: npm i
       # - run: sudo npm install -g firebase-tools
       # - run: sudo apt install default-jdk
