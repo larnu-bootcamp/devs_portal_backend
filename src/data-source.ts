@@ -37,7 +37,7 @@ export const AppDataSource = new DataSource(options);
 export const connectDb = async () => {
   try {
     const { options } = await AppDataSource.initialize();
-    console.log(`[DB ⚡] ${options.database} running.`,);
+    console.log(`[DataBase ⚡] ${options.database} running.`,);
   } catch (error) {
     console.log(error);
   }

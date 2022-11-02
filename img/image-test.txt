@@ -1,0 +1,1 @@
+This is not an image, for instance uploading this file will fail

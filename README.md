@@ -108,6 +108,41 @@ into settings.json:
 
 Then you can visualise the folder thunder-tests to test the endpoints and save any change or test.
 
+## Firebase Service Account Authentication
+
+In order to install firebase-cli and login without opening a browser window and use CI/CD workflow
+
+```bash
+  npm install -g firebase-tools
+```
+
+```bash
+  export GOOGLE_APPLICATION_CREDENTIALS=/abosolute/path/to/private-key.json
+```
+
+```bash
+  firabase --version
+  firebase init
+```
+
+## Install Java
+
+```bash
+  sudo apt update
+  sudo apt install default-jdk
+```
+
+Select Storage Rules and Storage Emulator
+
+```bash
+  firabase emulators:start --only storage
+  firebase emulators:exec ./src/services/larnu-devs-portal-2ba51ded54fa.json
+```
+
+Now go to the following link:
+
+https://firebase.google.com/docs/app-distribution/authenticate-service-account?platform=ios
+
 ## Contributing
 
 - [@josseed](https://github.com/josseed)

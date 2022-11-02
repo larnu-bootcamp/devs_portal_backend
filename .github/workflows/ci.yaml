@@ -46,10 +46,13 @@ jobs:
           - 5432:5432
 
     steps:
+      # - name: GitHub Action for Firebase and Postgres, w9jds/firebase-action@v11.9.0
+      - uses: pocket-apps/action-setup-firebase@v2
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
       - run: npm i
+      - run: firabase emulators:start --only storage
       - run: npm run db:up
       - run: npm run test:start
