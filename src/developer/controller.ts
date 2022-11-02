@@ -41,3 +41,32 @@ export const registerDevelopers: RequestHandler = async(req, res, next)=> {
     next(error);
   }
 };
+
+export const updateDevelopers: RequestHandler = async(req, res, next)=> {
+  try {
+
+    const updateStudent = await AppDataSource
+      .getRepository(Student)
+      .findOne({
+        where: {
+          id: parseInt(req.params.id)
+        }
+      });
+    if (!updateStudent) {
+      return next(new HttpError(404, 'no developers found'));
+    }
+
+    await AppDataSource
+      .createQueryBuilder()
+      .update(Student)
+      .set({ ...req.body })
+      .where('id = :id', { id: req.params.id })
+      .execute()
+      .then(()=> res.status(200).json({
+          message: 'data updated successfully!',
+      }));
+    
+  } catch (error) {
+    next(error);
+  }
+};
