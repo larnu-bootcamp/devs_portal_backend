@@ -18,3 +18,26 @@ export const getAll: RequestHandler = async (req, res, next) => {
     next(error);
   }
 };
+
+export const registerDevelopers: RequestHandler = async(req, res, next)=> {
+  try {
+    await AppDataSource
+      .createQueryBuilder()
+      .insert()
+      .into(Student)
+      .values({
+        ...req.body
+      })
+      .execute();
+    
+    res.status(200).json({
+      message: 'New Developer user created successfully!',
+      Name: req.body.name,
+      lasname: req.body.lastName,
+      email: req.body.email, 
+      active: req.body.active 
+    });
+  } catch (error) {
+    next(error);
+  }
+};
