@@ -47,7 +47,7 @@ jobs:
 
     steps:
       # - name: GitHub Action for Firebase and Postgres, w9jds/firebase-action@v11.9.0
-      - uses: pocket-apps/action-setup-firebase@v2
+      - uses: sezabass/firebase-cli-action@v0.1
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
