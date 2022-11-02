@@ -5,9 +5,9 @@ Rest API for LarnU Full-stack Bootcamp's final project for our graduation.
 ## Table of Contents
 
 - [About](#about)
-- [Getting Started](#getting_started)
+- [Initialize Project](#initialize_project)
 - [Database Commands](#database_commands)
-- [Starting the Server](#starting_the_server)
+- [Getting Started](#getting_started)
 - [Usage](#usage)
 - [Contributing](#contributing)
 
@@ -16,13 +16,28 @@ Rest API for LarnU Full-stack Bootcamp's final project for our graduation.
 DEVS PORTAL is a web app where graduated LarnU students can be contacted and show their skills to recruiters
 and future employers.
 
-## Getting_Started
+## Initialize_Project
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ```bash
   git clone <this_repo_url>
   npm i
+```
+
+How to set the environment from scratch.
+
+```bash
+  npm init --y
+```
+
+Then we install all dependecies and devDependencies with
+npm i [dependencies] & npm i --save-dev [devDependencies]
+
+```bash
+  npx tsc --init
+  npx ts-jest config:init
+  npm init @eslint/config
 ```
 
 <br>
@@ -33,7 +48,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 <br>
 
-## Database_commands
+## Database_Commands
 
 ```bash
   npm run db:up
@@ -46,12 +61,13 @@ These instructions will get you a copy of the project up and running on your loc
   npm run typeorm -d <your-data-source-path> migration:{run|revert} # runs or reverts migration by file
 ```
 
-## Starting_the_server
+## Getting_Started
 
 Run before starting the server:
 
 ```bash
   npm run db:up # resets db & runs migrations & seeders
+  firebase emulators:start
 ```
 
 or
@@ -72,25 +88,6 @@ Once the database is created or reset and migrations are run automatically, then
   npm run test:coverage
 ```
 
-## Usage
-
-How to set the environment from scratch.
-
-```bash
-  npm init --y
-```
-
-Then we install all dependecies and devDependencies with
-npm i [dependencies] & npm i --save-dev [devDependencies]
-
-```bash
-  npx tsc --init
-  npx ts-jest config:init
-  npm init @eslint/config
-```
-
-<br>
-
 ## Thunder-Client
 
 Install thunder-client vscode extension to save the collections into our workspace.
@@ -108,9 +105,15 @@ into settings.json:
 
 Then you can visualise the folder thunder-tests to test the endpoints and save any change or test.
 
+<br>
+
 ## Firebase Service Account Authentication
 
 In order to install firebase-cli and login without opening a browser window and use CI/CD workflow
+
+Now go to the following link:
+
+https://firebase.google.com/docs/app-distribution/authenticate-service-account?platform=ios
 
 ```bash
   npm install -g firebase-tools
@@ -120,11 +123,6 @@ In order to install firebase-cli and login without opening a browser window and 
   export GOOGLE_APPLICATION_CREDENTIALS=/abosolute/path/to/private-key.json
 ```
 
-```bash
-  firabase --version
-  firebase init
-```
-
 ## Install Java
 
 ```bash
@@ -132,16 +130,21 @@ In order to install firebase-cli and login without opening a browser window and 
   sudo apt install default-jdk
 ```
 
-Select Storage Rules and Storage Emulator
+## Select Storage Rules and Storage Emulator
 
 ```bash
-  firabase emulators:start --only storage
-  firebase emulators:exec ./src/services/larnu-devs-portal-2ba51ded54fa.json
+  firebase --version
+  firebase init
+  or
+  firebase init emulators # firestore, hosting, etc...
 ```
 
-Now go to the following link:
+## Initialize Firebase/Storage Emulator
 
-https://firebase.google.com/docs/app-distribution/authenticate-service-account?platform=ios
+```bash
+  firebase emulators:start --only storage # firestore, hosting, etc...
+  firebase emulators:exec script
+```
 
 ## Contributing
 
