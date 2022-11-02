@@ -31,9 +31,8 @@ describe('[developersRouter ⚡]', () => {
       expect(res.body.students).toBeInstanceOf(Array<Student>);
     });
   });
-});
 
-/*
+  /*
 * Register user developer
 */
 describe('post /developers/larnu/register', () => {
@@ -89,5 +88,7 @@ describe('post /developers/larnu/register', () => {
 
       expect(status).toBe(500);
       expect(body).toHaveProperty('message'); 
+    });
   });
+  
 });
