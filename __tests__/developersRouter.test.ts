@@ -149,3 +149,4 @@ describe('patch /developers/larnu/register/id', () => {
     expect(body).toHaveProperty('message');
   });
 });
+
