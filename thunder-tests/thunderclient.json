@@ -26,5 +26,81 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "8a54b4b0-45d2-4d5d-a046-570374127a89",
+    "colId": "88d1b248-8bdb-4c3b-b4e7-d4c2fe8f067f",
+    "containerId": "",
+    "name": "Register",
+    "url": "http://localhost:3000/api/v1/larnu/register",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-10-27T20:55:27.516Z",
+    "modified": "2022-10-28T17:02:55.454Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"username35\",\n  \"lastName\": \"lastname35\",\n  \"email\": \"nuevo35@hotmail.com\",\n  \"password\": \"12345678Rv.\",\n  \"active\": true\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "efe9df19-655e-400a-90a1-db93b3c87a52",
+    "colId": "88d1b248-8bdb-4c3b-b4e7-d4c2fe8f067f",
+    "containerId": "",
+    "name": "Login",
+    "url": "http://localhost:3000/api/v1/auth/login",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-10-27T20:56:12.729Z",
+    "modified": "2022-10-28T16:28:58.657Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"Lurline44@hotmail.com\",\n  \"password\": \"12345678\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "fc8c3a05-1b15-4d25-94c8-09da948661b4",
+    "colId": "ade3a223-d2f0-4fca-b728-55a432879d87",
+    "containerId": "",
+    "name": "Patch student",
+    "url": "localhost:3000/api/v1/developers/larnu/register/102",
+    "method": "PATCH",
+    "sortNum": 40000,
+    "created": "2022-11-02T14:30:09.311Z",
+    "modified": "2022-11-02T14:30:09.311Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{ \n  \"name\":\"ejemp100\",\n  \"lastName\":\"ejemp100\",\n  \"age\":20,\n  \"city\":\"ejemp100\",\n  \"country\":\"ejemp100\", \n  \"email\":\"ejemp100@correo.com\",\n  \"active\":true,\n  \"skills\":[\"ejemp\", \"ejem2\"],\n  \"profession\":\"ejemp\",\n  \"description\":\"ejempasdadada dadas\",\n  \"github\":\"https://www.linkedin.com\",  \n  \"linkedin\":\"https://www.linkedin.com\",\n  \"portfolio\":\"https://www.linkedin.com\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "a06658c2-1184-4726-b3bc-6a8836d488a3",
+    "colId": "ade3a223-d2f0-4fca-b728-55a432879d87",
+    "containerId": "",
+    "name": "post Student",
+    "url": "localhost:3000/api/v1/developers/larnu/register",
+    "method": "POST",
+    "sortNum": 50000,
+    "created": "2022-11-02T14:31:45.314Z",
+    "modified": "2022-11-02T15:20:24.901Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{ \n  \"name\":\"ejemp\",\n  \"lastName\":\"ejemp\",\n  \"age\":20,\n  \"city\":\"ejemp\",\n  \"country\":\"ejemp\", \n  \"email\":\"ejemp5890@correo.com\",\n  \"active\":true,\n  \"skills\":[\"ejemp\", \"ejem2\"],\n  \"profession\":\"ejemp\",\n  \"description\":\"ejempasdadada dadas\",\n  \"github\":\"https://www.linkedin.com\",  \n  \"linkedin\":\"https://www.linkedin.com\",\n  \"portfolio\":\"https://www.linkedin.com\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

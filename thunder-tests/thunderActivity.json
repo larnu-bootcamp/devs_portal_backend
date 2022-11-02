@@ -1,1 +1,106 @@
-[]
+[
+  {
+    "_id": "3bb75c20-52bc-4ce1-8f20-7152264bc760",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/api/v1/developers/larnu/register/80",
+    "url": "localhost:3000/api/v1/developers/larnu/register/80",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2022-11-02T16:36:16.179Z",
+    "modified": "2022-11-02T16:38:20.881Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{ \n  \"name\":\"ejemp100\",\n  \"lastName\":\"ejemp100\",\n  \"age\":20,\n  \"city\":\"ejemp100\",\n  \"country\":\"ejemp100\", \n  \"email\":\"ejemp100@correo.com\",\n  \"active\":true,\n  \"skills\":[\"ejemp\", \"ejem2\"],\n  \"profession\":\"ejemp\",\n  \"description\":\"ejempasdadada dadas\",\n  \"github\":\"https://www.linkedin.com\",  \n  \"linkedin\":\"https://www.linkedin.com\",\n  \"portfolio\":\"https://www.linkedin.com\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "1979ec4a-3c47-4556-ac56-ac6736e0d1d6",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/api/v1/developers/larnu/delete/register/81",
+    "url": "localhost:3000/api/v1/developers/larnu/delete/register/81",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2022-11-02T16:40:01.262Z",
+    "modified": "2022-11-02T16:40:01.343Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "186b3038-11d0-48ea-92a8-5dff34d4ddcb",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/api/v1/developers/larnu/student/delete/82",
+    "url": "localhost:3000/api/v1/developers/larnu/student/delete/82",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2022-11-02T16:42:42.938Z",
+    "modified": "2022-11-02T16:42:57.281Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "eee03cb3-2656-451d-849e-79e1c3385ef3",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/api/v1/developers/larnu/student/delete/83",
+    "url": "localhost:3000/api/v1/developers/larnu/student/delete/83",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2022-11-02T16:43:03.675Z",
+    "modified": "2022-11-02T16:43:27.752Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "07e2f0ed-6315-4637-bb55-bbf6c5f9acd2",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/api/v1/developers/student/larnu/delete/83",
+    "url": "localhost:3000/api/v1/developers/student/larnu/delete/83",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2022-11-02T16:44:47.995Z",
+    "modified": "2022-11-02T16:44:55.098Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c98044fe-6751-419c-857c-5b27d580d173",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/api/v1/developers/student/larnu/delete/84",
+    "url": "localhost:3000/api/v1/developers/student/larnu/delete/84",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2022-11-02T16:46:51.338Z",
+    "modified": "2022-11-02T16:46:51.591Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \n}",
+      "form": []
+    },
+    "tests": []
+  }
+]
