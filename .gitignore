@@ -1,4 +1,4 @@
 node_modules/
 .env
-ui-debug.log
-firebase-debug.log
+ui-debug.**
+firebase-debug.**

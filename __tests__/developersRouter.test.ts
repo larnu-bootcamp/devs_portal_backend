@@ -1,26 +1,16 @@
 import supertest from 'supertest';
 import path from 'path';
-import { deleteApp } from 'firebase/app';
-import { fbStorage } from '../src/services/firebase.config';
-import { connectFirebaseStorageEmulator } from '../src/services/fbStorageEmulator';
 import { connectDb, AppDataSource } from '../src/data-source';
 import { app } from '../src/app';
 import { Student } from '../src/developer/entity';
 
 
 beforeAll(async () => {
-  connectFirebaseStorageEmulator();
   await connectDb();
 });
 
 afterAll(async () => {
   await AppDataSource.destroy();
-  try {
-    // destroys firebaseApp connection
-    await deleteApp(fbStorage.app);
-  } catch (error) {
-    console.log(error);
-  }
 });
 
 describe('[developersRouter ⚡]', () => {
