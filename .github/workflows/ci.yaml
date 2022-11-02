@@ -45,19 +45,7 @@ jobs:
           # Maps tcp port 5432 on service container to the host
           - 5432:5432
 
-      # firebase:
-      #   image: andreysenov/firebase-tools
-
-      #   ports:
-      #     - 9199:9199
-
     steps:
-      # - name: GitHub Action for Firebase and Postgres, w9jds/firebase-action@v11.9.0
-      # - uses: joinflux/firebase-tools@v10.7.0
-      #   with:
-      #     args: emulators:exec ./firabase.json
-      #   env:
-      #     FIREBASE_TOKEN: 1//05zjspZfqCfUJCgYIARAAGAUSNwF-L9Ir36wdwCbNtgVnfyeTdeGUJMZsolpOZyUa9lDccpVPyZ5HGWvYPyk1zLkYkIjh9XooBrw
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -67,4 +55,3 @@ jobs:
       - run: sudo apt install default-jdk
       - run: npm run db:up
       - run: firebase emulators:exec --only storage "npm run test:start"
-      # - run: npm run test:start
