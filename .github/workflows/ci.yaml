@@ -16,24 +16,24 @@ env:
   ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }} # example
   REFRESH_TOKEN_SECRET: ${{ secrets.REFRESH_TOKEN_SECRET }} # example
   # firebase env_variables
-  apiKey: "AIzaSyCRHwDapIfiZeqCuIrh-idUUash-qW5xLk"
-  authDomain: "larnu-devs-portal.firebaseapp.com"
-  projectId: "larnu-devs-portal"
-  storageBucket: "larnu-devs-portal.appspot.com"
-  messagingSenderId: "841889055711"
-  appId: "1:841889055711:web:5d8a578e838917d940ba6a"
+  apiKey: ${{ secrets.APIKEY }}
+  authDomain: ${{ secrets.AUTHDOMAIN }}
+  projectId: ${{ secrets.PROJECT_ID }}
+  storageBucket: ${{ secrets.STORAGEBUCKET }}
+  messagingSenderId: ${{ secrets.MESSAGINGSENDERID }}
+  appId: ${{ secrets.APPID }}
   # google application credentials
-  jsonkeyFileName: "larnu-devs-portal-2ba51ded54fa.json"
-  type: "service_account"
-  project_id: "larnu-devs-portal"
-  private_key_id: "2ba51ded54fa02c21ecb644e9f35436408be2d24"
-  private_key: "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCXuXX8M1BOPubj\nhFcUDL3YcP6gOqpOQ2S1p8Acm0W+FD3gCQCcYwvm5QBJkdJtKKUh0mX7xQ901C0d\nNAIVc+waoNs79Mw3iMds3/vpj+ITHK4q+MYBZkuwI5ca98xqGFFJryck1jJV2UNT\nbQJBqTwdA3Werss9N09KgCSQ6UX6UORGJVi+5Pujw36rr772pYShII9pqydKdjLF\nzdp5sw+dlGdH2LSNCaZLQKpZLhcICC4RC1R1VFtb1aLc2dxNM9aGoxJc/dt5HOlL\nPOf0dOwXhgkIaELDG2sGYmvCCTt19pR9VABOkEKEz/kmGphB+oEs/5dwpbFbW9aF\nvcH5i0SnAgMBAAECggEABd4bxH2diPEgz8Kx9WoKu4CfMEYkiPNNRUMwCEsu9stk\nmzHt7p5b+vl3OeEkUKlmPXkcDZEQ6HU+K2dz/y1k/6Ch6d8tOKaXA8xjuyQf25pb\n1/iX+7zfh3fQ46+ana3EEwPtkRyhhLVqx6KrGCv50attFI5w+LSXYeuzvlDvLl98\nPYyl5gvmWdrDgdVj71s6UO7C45TyAO5syxbvSZBthSPkRVk3RhOl3FN92MZp6Slt\nhPIaqxkedar2wEcWW62g1Gl5om7Ni2U5ZfX85jr2StYeygskMDy50a9AmXmR9ApE\ndBUcE+nMHNgHaG+YlmzUBCsxuZfhr+BI0HvcF+SGCQKBgQDIhCqmoHtnhBNdiXfy\nyLziU5r75tlVWYBlIL9vc7M2LS1bW8Z2eIx9eXH2Csouzr1QuHTX0ojuXcbTWGLQ\nvY/efD6WqhqldKTF6y+u7cKYiIl16ol0no1mBANgab+8SD+oMiPSUS/MwBsULKn9\ntIVC1VqFO9KYe6GVEkn7XCov2QKBgQDBtQ/PsaYxUGlwaeRj0KnkS0q1KXIonfC6\n9Qe2rVhFjyr0+DF91flaUK+gojLzbYdmRcnJVGKGar+HbNiNh3Xb2xdCYxlaQjUX\nSUlI9oyzB5jEl9ecQg6lKduBctWmaIc/sH2vhxx69LiBVdwsQHMG/cdSq3INbyi8\ns6yvW5zIfwKBgFS1MOdviHJ0o1Gyj0+radAbDbA5F7ssskcGjJjiweSzNSQRI0hN\nKNyg/3m3mS4o/GUrZ4D9WgeI6kPCZQxV6H9O8YnolpUrL6jE8EHwA3M4ywlbaXIw\nwP9F1r9WLT+3Ld06QVPKJG1VApuFOtMI/fr78t+yJAdywxIcxdBAYToRAoGAMnZp\nzRCZnAU3wqpDbmFgsPGQX8uRStWCbiIBRWy5Lz3R0gmKUx7YG9gjOLSok1P4TwNl\nQwaxuBS9GpmXfJ9Ka+ESmR/Z7fKLhCp6ZgCcvNMA0E5CRBnNWOejoIB6+iQG/+eJ\nhp2rJLj2C/ODLSAJF0wrjfTN/IP119ry5Kf4Gx8CgYEAvFDqHq3y0BIU89JBltIC\n1zr1FsT+qY7n6Z23GO0aOuQvrenlwc7TWl4U0AIidMaW2XEhC3lxvKvTXol2plsy\nvHdtZJvzMVls9AATNxo+Q+qnGDHkEbukrWBDnHOoKSlkF3RTS7/O4ZJZWm5VqscO\nK9QpeXPFiZsdBrM9xd1ISkE=\n-----END PRIVATE KEY-----\n"
-  client_email: "larnu-dev-credantials@larnu-devs-portal.iam.gserviceaccount.com"
-  client_id: "117049805760970675031"
-  auth_uri: "https://accounts.google.com/o/oauth2/auth"
-  token_uri: "https://oauth2.googleapis.com/token"
-  auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs"
-  client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/larnu-dev-credantials%40larnu-devs-portal.iam.gserviceaccount.com"
+  jsonkeyFileName: ${{ secrets.JSONKEYFILENAME }}
+  type: ${{ secrets.TYPE }}
+  project_id: ${{ secrets.PROJECT_ID }}
+  private_key_id: ${{ secrets.PRIVATE_KEY_ID }}
+  private_key: ${{ secrets.PRIVATE_KEY }}
+  client_email: ${{ secrets.CLIENT_EMAIL }}
+  client_id: ${{ secrets.CLIENT_ID }}
+  auth_uri: ${{ secrets.AUTH_URI }}
+  token_uri: ${{ secrets.TOKEN_URI }}
+  auth_provider_x509_cert_url: ${{ secrets.AUTH_PROVIDER_X509_CERT_URL }}
+  client_x509_cert_url: ${{ secrets.CLIENT_X509_CERT_URL }}
 
 jobs:
   linting:
@@ -75,7 +75,6 @@ jobs:
       - run: sudo npm install -g firebase-tools
       - run: sudo apt install default-jdk
       - run: npm run db:up
-
       - run: node ./src/services/firebase/genGoogleCrendentials.js
       - run: export GOOGLE_APPLICATION_CREDENTIALS=~/larnU_bootcamp/devs_portal_backend/src/services/firebase/larnu-devs-portal-2ba51ded54fa.json
       - run: firebase emulators:exec --only storage "npm run test:start"
