@@ -1,7 +1,7 @@
 [
   {
     "_id": "ade3a223-d2f0-4fca-b728-55a432879d87",
-    "colName": "devs_portal",
+    "colName": "developersRouter",
     "created": "2022-10-19T21:56:22.068Z",
     "sortNum": 10000,
     "folders": []
