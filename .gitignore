@@ -3,3 +3,4 @@ node_modules/
 larnu-devs-portal-2ba51ded54fa.json
 ui-debug.**
 firebase-debug.**
+.coverage

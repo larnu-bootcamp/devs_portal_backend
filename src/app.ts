@@ -5,7 +5,9 @@ import { connectStorageEmulator } from 'firebase/storage';
 import { fbStorage } from './services/firebase/firebase.config';
 import { defaultErrorHandler } from './middlewares/defaultErrorHandler';
 import { developersRouter } from './developer/router';
-
+import { userRouter } from './user/user.router';
+import { schemaValidator } from './middlewares/schemaValidation';
+import { userSchema, loginSchema } from './user/user.schema';
 
 export const app = express();
 
@@ -29,6 +31,9 @@ app.use('/api/v1/ping', async (req, res, next) => {
 });
 
 app.use('/api/v1/developers', developersRouter);
+
+app.use('/api/v1/auth', schemaValidator(loginSchema), userRouter );
+app.use('/api/v1/larnu', schemaValidator(userSchema), userRouter);
 
 // 3. defaultErrorHandler middleware
 app.use('/api/v1/', defaultErrorHandler);
