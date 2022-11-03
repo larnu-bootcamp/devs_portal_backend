@@ -3,9 +3,6 @@ import { getAll, uploadImage, updateImage, deleteImage } from './controller';
 import processFileUpload from '../middlewares/processFileUpload';
 
 
-import { getAll} from './controller';
-
-
 export const developersRouter = Router();
 
 developersRouter.route('/')
