@@ -1,13 +1,13 @@
 import 'reflect-metadata';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { SeederOptions } from 'typeorm-extension';
-import { config } from 'dotenv';
+import dotEnv from 'dotenv';
 import { Student } from './developer/entity';
 import { Recruiter } from './recruiter/entity';
 import { User } from './user/entity';
 
 
-config();
+dotEnv.config();
 const options: DataSourceOptions & SeederOptions = {
   type: 'postgres',
   host: process.env.DB_HOST,

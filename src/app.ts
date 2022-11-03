@@ -2,7 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import { connectStorageEmulator } from 'firebase/storage';
-import { fbStorage } from './services/firebase.config';
+import { fbStorage } from './services/firebase/firebase.config';
 import { defaultErrorHandler } from './middlewares/defaultErrorHandler';
 import { developersRouter } from './developer/router';
 

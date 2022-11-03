@@ -5,9 +5,9 @@ Rest API for LarnU Full-stack Bootcamp's final project for our graduation.
 ## Table of Contents
 
 - [About](#about)
-- [Initialize Project](#initialize_project)
-- [Database Commands](#database_commands)
 - [Getting Started](#getting_started)
+- [How Initialize Project From Scratch](#how_initialize_project_from_scratch)
+- [Database Commands](#database_commands)
 - [Usage](#usage)
 - [Contributing](#contributing)
 
@@ -16,14 +16,53 @@ Rest API for LarnU Full-stack Bootcamp's final project for our graduation.
 DEVS PORTAL is a web app where graduated LarnU students can be contacted and show their skills to recruiters
 and future employers.
 
-## Initialize_Project
+<br>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+> IMPORTANT:
+>
+> ### Create a .env file like sample.env for your configurations in the root of your project.
+
+<br>
+
+## Getting_Started
+
+<br>
+
+### 1. Installation:
 
 ```bash
   git clone <this_repo_url>
-  npm i
+  npm i && sudo npm install -g firebase-tools && sudo apt install default-jdk
+  npm run db:up # resets db & runs migrations & seeders
 ```
+
+### 2. Authenticate to Firebase with:
+
+```bash
+  # generates google application credential file for Firebase login
+  node ./src/services/firebase/genGoogleCrendentials.js
+
+  # export our private_key
+  export GOOGLE_APPLICATION_CREDENTIALS=~/larnU_bootcamp/devs_portal_backend/src/services/firebase/larnu-devs-portal-2ba51ded54fa.json
+
+  # CHECKING
+  echo $GOOGLE_APPLICATION_CREDENTIALS
+
+  # Run firebase Emulators
+  firebase emulators:start
+```
+
+### 3. Run the Dev Server
+
+```bash
+  npm run dev:start
+```
+
+<br>
+
+## How_Initialize_Project_From_Scratch
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 How to set the environment from scratch.
 
@@ -40,14 +79,6 @@ npm i [dependencies] & npm i --save-dev [devDependencies]
   npm init @eslint/config
 ```
 
-<br>
-
-> IMPORTANT:
->
-> ### Create a .env file like sample.env for your configurations in the root of your project.
-
-<br>
-
 ## Database_Commands
 
 ```bash
@@ -59,33 +90,6 @@ npm i [dependencies] & npm i --save-dev [devDependencies]
   npm run typeorm migration:run # runs all migrations
   npm run typeorm migration:revert # reverts all migrations
   npm run typeorm -d <your-data-source-path> migration:{run|revert} # runs or reverts migration by file
-```
-
-## Getting_Started
-
-Run before starting the server:
-
-```bash
-  npm run db:up # resets db & runs migrations & seeders
-  firebase emulators:start
-```
-
-or
-
-```bash
-  npm run db:create # only creates the db if doesn't exist
-```
-
-Once the database is created or reset and migrations are run automatically, then we can start our express app.
-
-```bash
-  npm run dev:start
-  npm run dev:debug
-  npm run dev:lint
-
-  npm run test:start
-  npm run test:watch
-  npm run test:coverage
 ```
 
 ## Thunder-Client
@@ -116,11 +120,14 @@ Now go to the following link:
 https://firebase.google.com/docs/app-distribution/authenticate-service-account?platform=ios
 
 ```bash
-  npm install -g firebase-tools
-```
+  # INSTALLATION
+  sudo npm install -g firebase-tools
 
-```bash
-  export GOOGLE_APPLICATION_CREDENTIALS=/abosolute/path/to/private-key.json
+  # AUTHENTICATION
+  export GOOGLE_APPLICATION_CREDENTIALS=~/larnU_bootcamp/devs_portal_backend/src/services/firebase/larnu-devs-portal-2ba51ded54fa.json
+
+  echo $GOOGLE_APPLICATION_CREDENTIALS
+  $ /home/cesar/larnU_bootcamp/devs_portal_backend/src/services/firebase/larnu-devs-portal-2ba51ded54fa.json
 ```
 
 ## Install Java
@@ -130,10 +137,11 @@ https://firebase.google.com/docs/app-distribution/authenticate-service-account?p
   sudo apt install default-jdk
 ```
 
-## Select Storage Rules and Storage Emulator
+## Firebase first steps
 
 ```bash
   firebase --version
+  firebase --help # list all commands
   firebase init
   or
   firebase init emulators # firestore, hosting, etc...
@@ -143,7 +151,9 @@ https://firebase.google.com/docs/app-distribution/authenticate-service-account?p
 
 ```bash
   firebase emulators:start --only storage # firestore, hosting, etc...
-  firebase emulators:exec script
+
+  # FOR CI/CD WORKFLOWS
+  firebase emulators:exec <scriptCommand> # "npm run test:start", etc...
 ```
 
 ## Contributing

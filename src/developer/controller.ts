@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 import { v4 as uuidV4 } from 'uuid';
-import { fbStorage } from '../services/firebase.config';
+import { fbStorage } from '../services/firebase/firebase.config';
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 import { Student } from './entity';
 import { AppDataSource } from '../data-source';

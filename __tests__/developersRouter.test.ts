@@ -37,7 +37,7 @@ describe('[developersRouter ⚡]', () => {
       const res = await agent
         .post('/api/v1/developers/2/photo')
         .type('multipart/form-data')
-        .attach('image', path.resolve(__dirname, '../img/BQZLI7XRYZDBZBUKWVEF5SUVQU.jpg'));
+        .attach('image', path.resolve(__dirname, './images/BQZLI7XRYZDBZBUKWVEF5SUVQU.jpg'));
 
       expect(res.status).toBe(201);
       expect(res.body).toHaveProperty('message');
@@ -51,7 +51,7 @@ describe('[developersRouter ⚡]', () => {
       const res = await agent
         .post('/api/v1/developers/2/photo')
         .type('multipart/form-data')
-        .attach('image', path.resolve(__dirname, '../img/Snake_River_(5mb).jpg'));
+        .attach('image', path.resolve(__dirname, './images/Snake_River_(5mb).jpg'));
 
       expect(res.status).toBe(500);
       expect(res.body).toHaveProperty('message');
@@ -62,7 +62,7 @@ describe('[developersRouter ⚡]', () => {
       const res = await agent
         .post('/api/v1/developers/2/photo')
         .type('multipart/form-data')
-        .attach('image', path.resolve(__dirname, '../img/1666860634fireball-flames.svg'));
+        .attach('image', path.resolve(__dirname, './images/1666860634fireball-flames.svg'));
 
       expect(res.status).toBe(403);
       expect(res.body).toHaveProperty('message');
@@ -73,7 +73,7 @@ describe('[developersRouter ⚡]', () => {
       const res = await agent
         .post('/api/v1/developers/2/photo')
         .type('multipart/form-data')
-        .attach('image', path.resolve(__dirname, '../img/image-test.txt'));
+        .attach('image', path.resolve(__dirname, './images/image-test.txt'));
 
       expect(res.status).toBe(403);
       expect(res.body).toHaveProperty('message');

@@ -32,11 +32,11 @@
     "colId": "ade3a223-d2f0-4fca-b728-55a432879d87",
     "containerId": "",
     "name": "upload student's photo",
-    "url": "http://localhost:3000/api/v1/developers/1/photo",
+    "url": "http://localhost:3000/api/v1/developers/2/photo",
     "method": "POST",
     "sortNum": 40000,
     "created": "2022-10-26T21:27:47.686Z",
-    "modified": "2022-11-02T04:18:06.375Z",
+    "modified": "2022-11-02T19:34:55.008Z",
     "headers": [],
     "params": [],
     "body": {
@@ -46,7 +46,7 @@
       "files": [
         {
           "name": "image",
-          "value": "../img/db_diagram.png"
+          "value": "../__tests__/images/BQZLI7XRYZDBZBUKWVEF5SUVQU.jpg"
         }
       ]
     },
