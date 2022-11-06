@@ -1,6 +1,9 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
+import path from 'path';
+import swaggerUi from 'swagger-ui-express';
+import YAML from 'yamljs';
 import { connectStorageEmulator } from 'firebase/storage';
 import { fbStorage } from './services/firebase/firebase.config';
 import { defaultErrorHandler } from './middlewares/defaultErrorHandler';
@@ -18,6 +21,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 app.use(express.json());
 app.use(cors());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(YAML.load(path.resolve('./docs/docApiLarnUDev.yaml'))));
 
 // 2. mounting routers
 app.use('/api/v1/ping', async (req, res, next) => {
@@ -32,7 +36,7 @@ app.use('/api/v1/ping', async (req, res, next) => {
 
 app.use('/api/v1/developers', developersRouter);
 
-app.use('/api/v1/auth', schemaValidator(loginSchema), userRouter );
+app.use('/api/v1/auth', schemaValidator(loginSchema), userRouter);
 app.use('/api/v1/larnu', schemaValidator(userSchema), userRouter);
 
 // 3. defaultErrorHandler middleware
