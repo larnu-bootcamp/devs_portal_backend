@@ -1,13 +1,13 @@
 import 'reflect-metadata';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { SeederOptions } from 'typeorm-extension';
-import { config } from 'dotenv';
+import dotEnv from 'dotenv';
 import { Student } from './developer/entity';
 import { Recruiter } from './recruiter/entity';
 import { User } from './user/entity';
 
 
-config();
+dotEnv.config();
 const options: DataSourceOptions & SeederOptions = {
   type: 'postgres',
   host: process.env.DB_HOST,
@@ -37,7 +37,7 @@ export const AppDataSource = new DataSource(options);
 export const connectDb = async () => {
   try {
     const { options } = await AppDataSource.initialize();
-    console.log(`[DB ⚡] ${options.database} running.`,);
+    console.log(`[DataBase ⚡] ${options.database} running.`,);
   } catch (error) {
     console.log(error);
   }

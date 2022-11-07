@@ -1,6 +1,8 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
+import { connectStorageEmulator } from 'firebase/storage';
+import { fbStorage } from './services/firebase/firebase.config';
 import { defaultErrorHandler } from './middlewares/defaultErrorHandler';
 import { developersRouter } from './developer/router';
 import { userRouter } from './user/user.router';
@@ -10,12 +12,12 @@ import { userSchema, loginSchema } from './user/user.schema';
 export const app = express();
 
 // 1. middlewares
+if (process.env.NODE_ENV !== 'production') {
+  app.use(morgan('dev'));
+  connectStorageEmulator(fbStorage, 'localhost', 9199);
+}
 app.use(express.json());
 app.use(cors());
-
-if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'));
-}
 
 // 2. mounting routers
 app.use('/api/v1/ping', async (req, res, next) => {

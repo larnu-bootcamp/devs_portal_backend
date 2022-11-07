@@ -7,5 +7,6 @@ connectDb();
 
 app.listen(PORT, () => {
   console.log('[NODE_ENV ⚡]', process.env.NODE_ENV);
-  console.log(`[Server ⚡] running on port ${PORT}.`);
+  console.log(`[Express Server ⚡] running on port ${PORT}.`);
+  console.log('[Firebase Storage ⚡] connected.');
 });
