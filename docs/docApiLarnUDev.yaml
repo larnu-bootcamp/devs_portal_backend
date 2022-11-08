@@ -1,7 +1,7 @@
 openapi: 3.0.0
 servers:
-  - url: http://localhost:3000/api/v1/
-  - url: https://www.larnu.com/egresados
+  - url: https://larnu-devs-portal.onrender.com
+  - url: http://localhost:3000
 info:
   version: 1.0.1
   title: Portal-de-larnu-dev

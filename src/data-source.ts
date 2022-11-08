@@ -16,7 +16,7 @@ const options: DataSourceOptions & SeederOptions = {
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
   synchronize: false,
-  migrationsRun: true,
+  migrationsRun: false,
   logging: false,
   entities: [Student, Recruiter, User],
   migrations: ['src/migrations/*.ts'],

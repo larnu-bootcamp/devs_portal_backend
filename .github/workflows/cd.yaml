@@ -1,0 +1,90 @@
+name: continous deployment
+
+on:
+  pull_request:
+    types:
+      - closed
+
+env:
+  NODE_ENV: development
+  # postgres env_variables
+  DB_HOST: localhost
+  DB_PORT: 5432
+  DB_USER: postgres
+  DB_PASS: postgres
+  DB_NAME: devs_portal
+  # jwt env_variables
+  ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }} # example
+  REFRESH_TOKEN_SECRET: ${{ secrets.REFRESH_TOKEN_SECRET }} # example
+  # firebase env_variables
+  apiKey: ${{ secrets.APIKEY }}
+  authDomain: ${{ secrets.AUTHDOMAIN }}
+  projectId: ${{ secrets.PROJECT_ID }}
+  storageBucket: ${{ secrets.STORAGEBUCKET }}
+  messagingSenderId: ${{ secrets.MESSAGINGSENDERID }}
+  appId: ${{ secrets.APPID }}
+  # google application credentials
+  jsonkeyFileName: ${{ secrets.JSONKEYFILENAME }}
+  type: ${{ secrets.TYPE }}
+  project_id: ${{ secrets.PROJECT_ID }}
+  private_key_id: ${{ secrets.PRIVATE_KEY_ID }}
+  private_key: ${{ secrets.PRIVATE_KEY }}
+  client_email: ${{ secrets.CLIENT_EMAIL }}
+  client_id: ${{ secrets.CLIENT_ID }}
+  auth_uri: ${{ secrets.AUTH_URI }}
+  token_uri: ${{ secrets.TOKEN_URI }}
+  auth_provider_x509_cert_url: ${{ secrets.AUTH_PROVIDER_X509_CERT_URL }}
+  client_x509_cert_url: ${{ secrets.CLIENT_X509_CERT_URL }}
+
+jobs:
+  testing:
+    name: Testing the code
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm i
+      - run: sudo npm install -g firebase-tools
+      - run: sudo apt install default-jdk
+      - run: npm run db:up
+      - run: node ./src/services/firebase/genGoogleCrendentials.js
+      - run: export GOOGLE_APPLICATION_CREDENTIALS=~/larnU_bootcamp/devs_portal_backend/src/services/firebase/larnu-devs-portal-2ba51ded54fa.json
+      - run: firebase emulators:exec --only storage "npm run test:start"
+
+  # deploy:
+  #   needs: [test]
+  #   name: "Back-end deployment"
+  #   if: github.event.pull_request.merged == true
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: BetaHuhn/deploy-to-vercel-action@latest #deploy
+  #       with:
+  #         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  #         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  #         VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  #         VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  #         PRODUCTION: true
+  #         PR_LABELS: deployed
