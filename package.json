@@ -13,7 +13,7 @@
     "prod:build": "tsc",
     "prod:start": "NODE_ENV=production node ./dist/server.js",
     "prod:bundle": "esbuild server.ts --platform=node --bundle --minify --outfile=bundle/server.js",
-    "typeorm:prod": "typeorm-ts-node-commonjs -d ./dist/src/data-source.js",
+    "typeorm:prod": "NODE_ENV=production typeorm-ts-node-commonjs -d ./dist/src/data-source.js",
     "typeorm": "typeorm-ts-node-esm -d ./src/data-source.ts",
     "db:create": "ts-node ./node_modules/typeorm-extension/dist/cli/index.js db:create",
     "db:drop": "ts-node ./node_modules/typeorm-extension/dist/cli/index.js db:drop",
