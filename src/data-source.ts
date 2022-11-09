@@ -18,6 +18,7 @@ const options: DataSourceOptions & SeederOptions = {
   synchronize: false,
   migrationsRun: false,
   logging: false,
+  ssl: process.env.NODE_ENV === 'production' ? true : false,
   entities: [Student, Recruiter, User],
   migrations: process.env.NODE_ENV !== 'production' ? ['src/migrations/*.ts'] : ['dist/src/migrations/*.js'],
   seeds: process.env.NODE_ENV !== 'production' ? ['src/seeds/*.seed.ts'] : ['dist/src/seeds/*.seed.js'],
