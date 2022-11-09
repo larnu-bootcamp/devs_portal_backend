@@ -28,6 +28,31 @@
     "tests": []
   },
   {
+    "_id": "a1673643-5703-424e-ae41-a88ec9350dc7",
+    "colId": "ade3a223-d2f0-4fca-b728-55a432879d87",
+    "containerId": "",
+    "name": "upload student's photo",
+    "url": "http://localhost:3000/api/v1/developers/2/photo",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2022-10-26T21:27:47.686Z",
+    "modified": "2022-11-06T16:29:32.176Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [],
+      "files": [
+        {
+          "name": "photo",
+          "value": "../__tests__/images/BQZLI7XRYZDBZBUKWVEF5SUVQU.jpg"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
     "_id": "8a54b4b0-45d2-4d5d-a046-570374127a89",
     "colId": "88d1b248-8bdb-4c3b-b4e7-d4c2fe8f067f",
     "containerId": "",
@@ -55,12 +80,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-10-27T20:56:12.729Z",
-    "modified": "2022-10-28T16:28:58.657Z",
+    "modified": "2022-11-03T04:40:58.642Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\": \"Lurline44@hotmail.com\",\n  \"password\": \"12345678\"\n}",
+      "raw": "{\n  \"email\": \"nuevo35@hotmail.com\",\n  \"password\": \"12345678Rv.\"\n}",
       "form": []
     },
     "tests": []

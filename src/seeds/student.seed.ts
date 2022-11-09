@@ -11,6 +11,6 @@ export default class StudentSeeder implements Seeder {
 
     const studentFactory = factoryManager.get(Student);
     // save (n) factory generated entities, to the database
-    await studentFactory.saveMany(100);
+    await studentFactory.saveMany(50);
   }
 }

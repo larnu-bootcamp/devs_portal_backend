@@ -12,6 +12,12 @@ export class Student {
   @Column({ name: 'last_name' })
   lastName!: string;
 
+  @Column('simple-json', { nullable: true })
+  image!: {
+    url: string;
+    id: string
+  };
+
   @Column()
   age!: number;
 

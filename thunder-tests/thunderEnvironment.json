@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "_id": "e52c0bd5-b72f-4eb4-943a-77fdd6dde353",
+    "name": "env_devs_portal",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2022-10-26T21:42:14.339Z",
+    "modified": "2022-10-26T21:42:14.339Z",
+    "data": []
+  }
+]
