@@ -127,5 +127,19 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "ebd32e35-c1c0-427e-bcde-82710eb30bd8",
+    "colId": "b9726298-6d63-4572-94f2-7f1987dc51d7",
+    "containerId": "",
+    "name": "developers",
+    "url": "https://larnu-devs-portal.onrender.com/api/v1/developers",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-11-09T05:34:23.109Z",
+    "modified": "2022-11-09T05:35:06.588Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
