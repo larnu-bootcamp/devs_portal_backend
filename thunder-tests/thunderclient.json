@@ -114,11 +114,11 @@
     "colId": "ade3a223-d2f0-4fca-b728-55a432879d87",
     "containerId": "",
     "name": "post Student",
-    "url": "localhost:3000/api/v1/developers/larnu/register",
+    "url": "localhost:3000/api/v1/developers/register",
     "method": "POST",
     "sortNum": 50000,
     "created": "2022-11-02T14:31:45.314Z",
-    "modified": "2022-11-02T15:20:24.901Z",
+    "modified": "2022-11-09T22:46:53.663Z",
     "headers": [],
     "params": [],
     "body": {
