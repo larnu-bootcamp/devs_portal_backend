@@ -84,7 +84,7 @@ describe('[developersRouter ⚡]', () => {
 /*
 * Test Register user developer
 */
-describe('post /developers/larnu/register', () => {
+describe('post /developers/register', () => {
   const request = supertest.agent(app);
 
   it('should be able to register a user in the database', async () => {

@@ -102,5 +102,30 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "07e27747-e67c-46c4-b7dc-8e1f634d4ea6",
+    "colId": "ade3a223-d2f0-4fca-b728-55a432879d87",
+    "containerId": "",
+    "name": "upload student's photo",
+    "url": "http://localhost:3000/api/v1/developers/2/photo",
+    "method": "POST",
+    "sortNum": 60000,
+    "created": "2022-11-10T20:23:45.883Z",
+    "modified": "2022-11-10T20:25:01.309Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [],
+      "files": [
+        {
+          "name": "photo",
+          "value": "..\\__tests__\\images\\BQZLI7XRYZDBZBUKWVEF5SUVQU.jpg"
+        }
+      ]
+    },
+    "tests": []
   }
 ]
