@@ -139,7 +139,6 @@ export const deleteImage: RequestHandler = async (req, res, next) => {
 };
 
 /**
- * 
  * @description Register students entities in the "student" postgreSQL table.
  */
 

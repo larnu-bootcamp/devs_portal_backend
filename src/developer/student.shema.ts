@@ -27,7 +27,7 @@ export const studentShema = zod.object ({
       .string()
       .array()
       .nonempty({
-        message: 'Campo obligatorio, no puede estar vacio'
+        message: 'Campo es obligatorio, no puede estar vacio'
       }),
     profession: zod
       .string()
