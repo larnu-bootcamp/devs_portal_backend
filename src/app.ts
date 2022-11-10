@@ -21,7 +21,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 app.use(express.json());
 app.use(cors());
-app.use('/', swaggerUi.serve, swaggerUi.setup(YAML.load(path.resolve('./docs/docApiLarnUDev.yaml'))));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(YAML.load(path.resolve('./docs/docApiLarnUDev.yaml'))));
 
 // 2. mounting routers
 app.use('/api/v1/ping', async (req, res, next) => {
