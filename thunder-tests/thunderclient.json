@@ -104,15 +104,16 @@
     "tests": []
   },
   {
-    "_id": "07e27747-e67c-46c4-b7dc-8e1f634d4ea6",
+{
+    "_id": "a1673643-5703-424e-ae41-a88ec9350dc7",
     "colId": "ade3a223-d2f0-4fca-b728-55a432879d87",
     "containerId": "",
     "name": "upload student's photo",
     "url": "http://localhost:3000/api/v1/developers/2/photo",
     "method": "POST",
-    "sortNum": 60000,
-    "created": "2022-11-10T20:23:45.883Z",
-    "modified": "2022-11-10T20:25:01.309Z",
+    "sortNum": 40000,
+    "created": "2022-10-26T21:27:47.686Z",
+    "modified": "2022-11-06T16:29:32.176Z",
     "headers": [],
     "params": [],
     "body": {
@@ -122,10 +123,24 @@
       "files": [
         {
           "name": "photo",
-          "value": "..\\__tests__\\images\\BQZLI7XRYZDBZBUKWVEF5SUVQU.jpg"
+          "value": "../__tests__/images/BQZLI7XRYZDBZBUKWVEF5SUVQU.jpg"
         }
       ]
     },
+    "tests": []
+  },
+  {
+    "_id": "ebd32e35-c1c0-427e-bcde-82710eb30bd8",
+    "colId": "b9726298-6d63-4572-94f2-7f1987dc51d7",
+    "containerId": "",
+    "name": "developers",
+    "url": "https://larnu-devs-portal.onrender.com/api/v1/developers",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-11-09T05:34:23.109Z",
+    "modified": "2022-11-09T05:35:06.588Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]
