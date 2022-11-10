@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getAll, uploadImage, updateImage, deleteImage, registerDevelopers } from './controller';
+import { getAll, uploadImage, updateImage, deleteImage, registerDevelopers, updateDevelopers } from './controller';
 import processFileUpload from '../middlewares/processFileUpload';
 import { schemaValidator } from '../middlewares/schemaValidation';
 import { studentShema } from './student.shema';
@@ -18,3 +18,5 @@ developersRouter.route('/:id/photo')
 developersRouter.route('/register')
   .post(schemaValidator(studentShema), registerDevelopers);
 
+developersRouter.route('/register/:id')
+  .patch(schemaValidator(studentShema), updateDevelopers);

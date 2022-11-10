@@ -140,6 +140,64 @@ describe('post /developers/larnu/register', () => {
     });
   });
 
+  /*
+* Update user developer
+*/
+
+describe('patch /developers/larnu/register/id', () => {
+  const request = supertest.agent(app);
+
+  it('You must be able to update a user in the database.', async () => {
+    const payload = {
+      'name':'NombreUpdate',
+      'lastName':'ApellidoUpdate',
+      'age':20,
+      'city':'ciudadUpdate',
+      'country':'paisUpdate', 
+      'email':'correoUpdate@correo.com',
+      'active':true,
+      'skills':['skillUpdate1', 'skillUpdate2'],
+      'profession':'Desarrollador Update',
+      'description':'Actualizacion de datos',
+      'github':'https://www.linkedin.com/Update',  
+      'linkedin':'https://www.linkedin.com/Update',
+      'portfolio':'https://www.linkedin.com/Update'
+    };
+    const { body, status } = await request
+      .patch('/api/v1/developers/register/1')
+      .type('json')
+      .send(payload);
+
+    expect(status).toBe(200);
+    expect(body).toHaveProperty('message');
+  });
+
+  it('should throw 404 error if user id does not exist', async () => {
+    const payload = {
+      'name':'NombreUpdate',
+      'lastName':'ApellidoUpdate',
+      'age':20,
+      'city':'ciudadUpdate',
+      'country':'paisUpdate', 
+      'email':'correoUpdate@correo.com',
+      'active':true,
+      'skills':['skillUpdate1', 'skillUpdate2'],
+      'profession':'Desarrollador Update',
+      'description':'Actualizacion de datos',
+      'github':'https://www.linkedin.com/Update',  
+      'linkedin':'https://www.linkedin.com/Update',
+      'portfolio':'https://www.linkedin.com/Update'
+    };
+    const { body, status } = await request
+      .patch('/api/v1/developers/register/1000')
+      .type('json')
+      .send(payload);
+
+    expect(status).toBe(404);
+    expect(body).toHaveProperty('message');
+  });
+});
+
   
 });
 
