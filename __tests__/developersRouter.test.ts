@@ -114,7 +114,7 @@ describe('post /developers/larnu/register', () => {
     expect(body.active).toBeTruthy();
   });
 
-  it('should throw 500 error if user already exists', async () => {
+  it('should throw 409 error if user already exists', async () => {
     const payload = {
       'name':'Nombre',
       'lastName':'Apellido1',
@@ -135,7 +135,7 @@ describe('post /developers/larnu/register', () => {
       .type('json')
       .send(payload);
 
-      expect(status).toBe(500);
+      expect(status).toBe(409);
       expect(body).toHaveProperty('message'); 
     });
   });

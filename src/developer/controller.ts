@@ -144,6 +144,16 @@ export const deleteImage: RequestHandler = async (req, res, next) => {
 
  export const registerDevelopers: RequestHandler = async(req, res, next)=> {
   try {
+    const studentDeveloper = await AppDataSource.getRepository(Student).findOne({
+      where: {
+        email: req.body.email
+      }
+    });
+    
+    if (studentDeveloper) {
+      return next(new HttpError (409, 'already registered user'));
+    }
+
     await AppDataSource
       .createQueryBuilder()
       .insert()
