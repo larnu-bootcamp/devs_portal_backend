@@ -28,6 +28,31 @@
     "tests": []
   },
   {
+    "_id": "a1673643-5703-424e-ae41-a88ec9350dc7",
+    "colId": "ade3a223-d2f0-4fca-b728-55a432879d87",
+    "containerId": "",
+    "name": "upload student's photo",
+    "url": "http://localhost:3000/api/v1/developers/2/photo",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2022-10-26T21:27:47.686Z",
+    "modified": "2022-11-06T16:29:32.176Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [],
+      "files": [
+        {
+          "name": "photo",
+          "value": "../__tests__/images/BQZLI7XRYZDBZBUKWVEF5SUVQU.jpg"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
     "_id": "8a54b4b0-45d2-4d5d-a046-570374127a89",
     "colId": "88d1b248-8bdb-4c3b-b4e7-d4c2fe8f067f",
     "containerId": "",
@@ -100,32 +125,6 @@
       "type": "json",
       "raw": "{ \n  \"name\":\"ejemp\",\n  \"lastName\":\"ejemp\",\n  \"age\":20,\n  \"city\":\"ejemp\",\n  \"country\":\"ejemp\", \n  \"email\":\"ejemp5891@correo.com\",\n  \"active\":true,\n  \"skills\":[\"ejemp\", \"ejem2\"],\n  \"profession\":\"ejemp\",\n  \"description\":\"ejempasdadada dadas\",\n  \"github\":\"https://www.linkedin.com\",  \n  \"linkedin\":\"https://www.linkedin.com\",\n  \"portfolio\":\"https://www.linkedin.com\"\n}",
       "form": []
-    },
-    "tests": []
-  },
-  {
-{
-    "_id": "a1673643-5703-424e-ae41-a88ec9350dc7",
-    "colId": "ade3a223-d2f0-4fca-b728-55a432879d87",
-    "containerId": "",
-    "name": "upload student's photo",
-    "url": "http://localhost:3000/api/v1/developers/2/photo",
-    "method": "POST",
-    "sortNum": 40000,
-    "created": "2022-10-26T21:27:47.686Z",
-    "modified": "2022-11-06T16:29:32.176Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "formdata",
-      "raw": "",
-      "form": [],
-      "files": [
-        {
-          "name": "photo",
-          "value": "../__tests__/images/BQZLI7XRYZDBZBUKWVEF5SUVQU.jpg"
-        }
-      ]
     },
     "tests": []
   },

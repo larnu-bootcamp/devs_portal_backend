@@ -170,6 +170,7 @@ export const deleteImage: RequestHandler = async (req, res, next) => {
       email: req.body.email, 
       active: req.body.active 
     });
+    
   } catch (error) {
     next(error);
   }
