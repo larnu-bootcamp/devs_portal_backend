@@ -73,6 +73,7 @@ jobs:
           node-version: 16
       - run: npm i
       - run: sudo npm install -g firebase-tools
+      - run: apt-get update
       - run: sudo apt install default-jdk
       - run: npm run db:up
       - run: node ./src/services/firebase/genGoogleCrendentials.js
