@@ -144,6 +144,7 @@ export const deleteImage: RequestHandler = async (req, res, next) => {
 
  export const registerDevelopers: RequestHandler = async(req, res, next)=> {
   try {
+
     const studentDeveloper = await AppDataSource.getRepository(Student).findOne({
       where: {
         email: req.body.email
@@ -170,7 +171,35 @@ export const deleteImage: RequestHandler = async (req, res, next) => {
       email: req.body.email, 
       active: req.body.active 
     });
-    
+
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+export const updateDevelopers: RequestHandler = async(req, res, next)=> {
+  try {
+    const updateStudent = await AppDataSource
+      .getRepository(Student)
+      .findOne({
+        where: {
+          id: parseInt(req.params.id)
+        }
+      });
+      if (!updateStudent) {
+        return next(new HttpError(404, 'no developers fount'));
+      }
+
+      await AppDataSource
+        .createQueryBuilder()
+        .update(Student)
+        .set({...req.body})
+        .where('id =:id', {id: req.params.id})
+        .execute()
+        .then(() => res.status(200).json({
+          message: 'data updated successfully!'
+        }));    
   } catch (error) {
     next(error);
   }
