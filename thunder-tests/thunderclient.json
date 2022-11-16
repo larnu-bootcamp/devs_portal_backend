@@ -95,13 +95,11 @@
     "colId": "ade3a223-d2f0-4fca-b728-55a432879d87",
     "containerId": "",
     "name": "Patch student",
-
     "url": "localhost:3000/api/v1/developers/register/5",
     "method": "PATCH",
     "sortNum": 40000,
     "created": "2022-11-02T14:30:09.311Z",
     "modified": "2022-11-10T19:44:14.519Z",
-
     "headers": [],
     "params": [],
     "body": {
@@ -120,12 +118,12 @@
     "method": "POST",
     "sortNum": 50000,
     "created": "2022-11-02T14:31:45.314Z",
-    "modified": "2022-11-10T19:38:07.411Z",
+    "modified": "2022-11-16T15:53:19.253Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{ \n  \"name\":\"ejemp\",\n  \"lastName\":\"ejemp\",\n  \"age\":20,\n  \"city\":\"ejemp\",\n  \"country\":\"ejemp\", \n  \"email\":\"ejemp5891@correo.com\",\n  \"active\":true,\n  \"skills\":[\"ejemp\", \"ejem2\"],\n  \"profession\":\"ejemp\",\n  \"description\":\"ejempasdadada dadas\",\n  \"github\":\"https://www.linkedin.com\",  \n  \"linkedin\":\"https://www.linkedin.com\",\n  \"portfolio\":\"https://www.linkedin.com\"\n}",
+      "raw": "{ \n  \"name\":\"ejemp\",\n  \"lastName\":\"ejemp\",\n  \"age\":20,\n  \"city\":\"ejemp\",\n  \"country\":\"ejemp\", \n  \"email\":\"ejempnew@correo.com\",\n  \"active\":true,\n  \"skills\":[\"ejemp\", \"ejem2\"],\n  \"profession\":\"ejemp\",\n  \"description\":\"ejempasdadada dadas\",\n  \"github\":\"https://www.linkedin.com\",  \n  \"linkedin\":\"https://www.linkedin.com\",\n  \"portfolio\":\"https://www.linkedin.com\"\n}",
       "form": []
     },
     "tests": []

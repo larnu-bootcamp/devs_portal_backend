@@ -85,7 +85,7 @@ describe('[developersRouter ⚡]', () => {
 * Test Register user developer
 */
 
-describe('post /developers/register', () => {
+  describe('post /developers/register', () => {
   const request = supertest.agent(app);
 
   it('should be able to register a user in the database', async () => {
@@ -147,7 +147,7 @@ describe('post /developers/register', () => {
 * Update user developer
 */
 
-describe('patch /developers/larnu/register/id', () => {
+  describe('patch /developers/register/id', () => {
   const request = supertest.agent(app);
 
   it('You must be able to update a user in the database.', async () => {
@@ -198,5 +198,6 @@ describe('patch /developers/larnu/register/id', () => {
 
     expect(status).toBe(404);
     expect(body).toHaveProperty('message');
+  });
   });
 });
