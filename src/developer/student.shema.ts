@@ -27,26 +27,25 @@ export const studentShema = zod.object ({
       .string()
       .array()
       .nonempty({
-        message: 'Campo obligatorio, no puede estar vacio'
+        message: 'Campo es obligatorio, no puede estar vacio'
       }),
     profession: zod
       .string()
-      .min(2, 'El campo Nombre es obligatorio ')
+      .min(2, 'El campo Profesion es obligatorio ')
       .optional(),
     description: zod
       .string()
-      .min(2, 'El campo Nombre es obligatorio '),
+      .min(2, 'El campo Descripcion es obligatorio '),
     github: zod
       .string()
-      .url()
-      .min(2, 'El campo Nombre es obligatorio '),  
+      .url({ message: 'Invalid url' })
+      .min(2, 'El campo github es obligatorio '),  
     linkedin: zod
       .string()
-      .url()
-      .min(2, 'El campo Nombre es obligatorio '),
+      .url({ message: 'Invalid url' })
+      .min(2, 'El campo linkedin es obligatorio '),
     portfolio: zod
       .string()
-      .url()
-      .min(2, 'El campo Nombre es obligatorio '),    
+      .url({ message: 'Invalid url' })
   })
 });
