@@ -8,16 +8,14 @@ import { studentShema } from './student.shema';
 export const developersRouter = Router();
 
 developersRouter.route('/')
-  .get(getAll);
+  .get(getAll)
+  .post(schemaValidator(studentShema), registerDevelopers);
 
 developersRouter.route('/:id/photo')
   .post(processFileUpload, uploadImage)
   .patch(processFileUpload, updateImage)
   .delete(deleteImage);
 
-developersRouter.route('/register')
-  .post(schemaValidator(studentShema), registerDevelopers);
-
-developersRouter.route('/register/:id')
+developersRouter.route('/:id')
   .patch(schemaValidator(studentShema), updateDevelopers);
 

@@ -85,7 +85,7 @@ describe('[developersRouter ⚡]', () => {
 * Test Register user developer
 */
 
-  describe('post /developers/register', () => {
+  describe('post /developers', () => {
   const request = supertest.agent(app);
 
   it('should be able to register a user in the database', async () => {
@@ -105,7 +105,7 @@ describe('[developersRouter ⚡]', () => {
       'portfolio':'https://www.portfolio.com'
     };
     const { body, status } = await request
-      .post('/api/v1/developers/register')
+      .post('/api/v1/developers')
       .type('json')
       .send(payload);
 
@@ -133,7 +133,7 @@ describe('[developersRouter ⚡]', () => {
       'portfolio':'https://www.portfolio.com'
     };
     const { body, status } = await request
-      .post('/api/v1/developers/register')
+      .post('/api/v1/developers')
       .type('json')
       .send(payload);
 
@@ -147,7 +147,7 @@ describe('[developersRouter ⚡]', () => {
 * Update user developer
 */
 
-  describe('patch /developers/register/id', () => {
+  describe('patch /developers/id', () => {
   const request = supertest.agent(app);
 
   it('You must be able to update a user in the database.', async () => {
@@ -167,7 +167,7 @@ describe('[developersRouter ⚡]', () => {
       'portfolio':'https://www.linkedin.com/Update'
     };
     const { body, status } = await request
-      .patch('/api/v1/developers/register/1')
+      .patch('/api/v1/developers/1')
       .type('json')
       .send(payload);
 
@@ -192,7 +192,7 @@ describe('[developersRouter ⚡]', () => {
       'portfolio':'https://www.linkedin.com/Update'
     };
     const { body, status } = await request
-      .patch('/api/v1/developers/register/1000')
+      .patch('/api/v1/developers/1000')
       .type('json')
       .send(payload);
 
