@@ -102,5 +102,58 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "b1a10bb5-87e0-4d61-8305-07aa2aeb980f",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/api/v1/developers/register/30",
+    "url": "localhost:3000/api/v1/developers/register/30",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-10T03:23:10.936Z",
+    "modified": "2022-11-10T03:23:11.085Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "04af3907-2c46-4092-85ee-ee7f6b17ffd1",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/api/v1/developers/register/30",
+    "url": "localhost:3000/api/v1/developers/register/30",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2022-11-10T03:23:20.158Z",
+    "modified": "2022-11-10T03:23:21.735Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "7c7e9bca-451f-4c0e-b2e9-b40049119ccb",
+    "colId": "history",
+    "containerId": "",
+    "name": "upload student's photo",
+    "url": "http://localhost:3000/api/v1/developers/2/photo",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-10T20:22:14.995Z",
+    "modified": "2022-11-10T20:22:17.038Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [],
+      "files": [
+        {
+          "name": "photo",
+          "value": "..\\__tests__\\images\\BQZLI7XRYZDBZBUKWVEF5SUVQU.jpg"
+        }
+      ]
+    },
+    "tests": []
   }
 ]

@@ -144,6 +144,17 @@ export const deleteImage: RequestHandler = async (req, res, next) => {
 
  export const registerDevelopers: RequestHandler = async(req, res, next)=> {
   try {
+
+    const studentDeveloper = await AppDataSource.getRepository(Student).findOne({
+      where: {
+        email: req.body.email
+      }
+    });
+    
+    if (studentDeveloper) {
+      return next(new HttpError (409, 'already registered user'));
+    }
+
     await AppDataSource
       .createQueryBuilder()
       .insert()
@@ -160,6 +171,7 @@ export const deleteImage: RequestHandler = async (req, res, next) => {
       email: req.body.email, 
       active: req.body.active 
     });
+
   } catch (error) {
     next(error);
   }
@@ -187,8 +199,7 @@ export const updateDevelopers: RequestHandler = async(req, res, next)=> {
         .execute()
         .then(() => res.status(200).json({
           message: 'data updated successfully!'
-        }));
-    
+        }));    
   } catch (error) {
     next(error);
   }

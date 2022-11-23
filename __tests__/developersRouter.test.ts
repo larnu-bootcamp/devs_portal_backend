@@ -84,7 +84,8 @@ describe('[developersRouter ⚡]', () => {
 /*
 * Test Register user developer
 */
-describe('post /developers/larnu/register', () => {
+
+  describe('post /developers', () => {
   const request = supertest.agent(app);
 
   it('should be able to register a user in the database', async () => {
@@ -104,7 +105,7 @@ describe('post /developers/larnu/register', () => {
       'portfolio':'https://www.portfolio.com'
     };
     const { body, status } = await request
-      .post('/api/v1/developers/register')
+      .post('/api/v1/developers')
       .type('json')
       .send(payload);
 
@@ -114,7 +115,8 @@ describe('post /developers/larnu/register', () => {
     expect(body.active).toBeTruthy();
   });
 
-  it('should throw 500 error if user already exists', async () => {
+
+  it('should throw 409 error if user already exists', async () => {
     const payload = {
       'name':'Nombre',
       'lastName':'Apellido1',
@@ -131,11 +133,12 @@ describe('post /developers/larnu/register', () => {
       'portfolio':'https://www.portfolio.com'
     };
     const { body, status } = await request
-      .post('/api/v1/developers/register')
+      .post('/api/v1/developers')
       .type('json')
       .send(payload);
 
-      expect(status).toBe(500);
+
+      expect(status).toBe(409);
       expect(body).toHaveProperty('message'); 
     });
   });
@@ -144,7 +147,7 @@ describe('post /developers/larnu/register', () => {
 * Update user developer
 */
 
-describe('patch /developers/larnu/register/id', () => {
+  describe('patch /developers/id', () => {
   const request = supertest.agent(app);
 
   it('You must be able to update a user in the database.', async () => {
@@ -164,7 +167,7 @@ describe('patch /developers/larnu/register/id', () => {
       'portfolio':'https://www.linkedin.com/Update'
     };
     const { body, status } = await request
-      .patch('/api/v1/developers/register/1')
+      .patch('/api/v1/developers/1')
       .type('json')
       .send(payload);
 
@@ -189,15 +192,12 @@ describe('patch /developers/larnu/register/id', () => {
       'portfolio':'https://www.linkedin.com/Update'
     };
     const { body, status } = await request
-      .patch('/api/v1/developers/register/1000')
+      .patch('/api/v1/developers/1000')
       .type('json')
       .send(payload);
 
     expect(status).toBe(404);
     expect(body).toHaveProperty('message');
   });
+  });
 });
-
-  
-});
-
